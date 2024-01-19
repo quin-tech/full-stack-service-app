@@ -9,7 +9,8 @@ const typeDefs = `
     name: String
     description: String
     image: String
-    quantity: Int
+    availability: String
+    contact: String
     price: Float
     category: Category
   }
@@ -50,7 +51,7 @@ const typeDefs = `
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     addOrder(services: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateService(_id: ID!, quantity: Int!): Service
+    updateService(_id: ID!, price: Int!): Service
     login(email: String!, password: String!): Auth
   }
 `;
