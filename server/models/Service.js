@@ -24,6 +24,12 @@ const serviceSchema = new Schema({
     min: 0,
     default: 0
   },
+  availabillity: {
+    type: String
+  },
+  contact: {
+    type: String
+  },
   category: {
     type: Schema.Types.ObjectId,
     ref: 'Category',
