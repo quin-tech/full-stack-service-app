@@ -73,7 +73,6 @@ const resolvers = {
 
         line_items.push({
           price: price.id,
-          quantity: 1
         });
       }
 
@@ -113,10 +112,9 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    updateService: async (parent, { _id, quantity }) => {
-      const decrement = Math.abs(quantity) * -1;
+    updateService: async (parent, { _id, price }) => {
 
-      return await Service.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+      return await Service.findByIdAndUpdate(_id, price, { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
