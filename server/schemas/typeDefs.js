@@ -4,12 +4,13 @@ const typeDefs = `
     name: String
   }
 
-  type Product {
+  type Service {
     _id: ID
     name: String
     description: String
     image: String
-    quantity: Int
+    availability: String
+    contact: String
     price: Float
     category: Category
   }
@@ -17,7 +18,7 @@ const typeDefs = `
   type Order {
     _id: ID
     purchaseDate: String
-    products: [Product]
+    services: [Service]
   }
 
   type User {
@@ -39,18 +40,18 @@ const typeDefs = `
 
   type Query {
     categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
+    services(category: ID, name: String): [Service]
+    service(_id: ID!): Service
     user: User
     order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
+    checkout(services: [ID]!): Checkout
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
+    addOrder(services: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
+    updateService(_id: ID!, price: Int!): Service
     login(email: String!, password: String!): Auth
   }
 `;
