@@ -19,11 +19,24 @@ const serviceSchema = new Schema({
     required: true,
     min: 0.99
   },
+  quantity: {
+    type: Number
+  },
   availability: {
     type: String
   },
-  contact: {
+  contact_name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  contact_phone: {
     type: String
+  },
+  contact_email: {
+    type: String,
+    required: true,
+    trim: true
   },
   category: {
     type: Schema.Types.ObjectId,
