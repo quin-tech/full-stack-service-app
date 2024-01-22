@@ -124,16 +124,6 @@ db.once('open', async () => {
       availability: '2024-02-28T18:00Z'
     },
     {
-      name: 'Bouquet Delivery',
-      description:
-        'In-store stock of beautiful bouquets and some live plants, or Order online or by phone. Visit our website / Same day delivery',
-      image: 'home-store-front-door.jpg',
-      category: categories[6]._id,
-      price: 200.00,
-      contact: 'Alan Anderson',
-      availability: '2024-03-01T08:00Z'
-    },
-    {
       name: 'Happy Hound Dog Walking',
       description:
         '15 years experience in the business / Trained and background-checked walkers / Any size dogs.',
