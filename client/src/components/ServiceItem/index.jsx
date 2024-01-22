@@ -10,12 +10,9 @@ function ServiceItem(item) {
   const state = useSelector((state) => state.globalState);
   const dispatch = useDispatch();
   const {
-    _id,
-    name,
-    description,
     image,
-    availability,
-    contact,
+    name,
+    _id,
     price
   } = item;
 

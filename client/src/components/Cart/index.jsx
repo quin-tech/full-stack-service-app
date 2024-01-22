@@ -64,9 +64,9 @@ const Cart = () => {
     const serviceIds = [];
 
     state.cart.forEach((item) => {
-      //for (let i = 0; i < item.purchaseQuantity; i++) {
+      for (let i = 0; i < item.purchaseQuantity; i++) {
         serviceIds.push(item._id);
-      //}
+      }
     });
 
     getCheckout({
