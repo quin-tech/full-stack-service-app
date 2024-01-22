@@ -19,7 +19,7 @@ export const QUERY_SERVICES = gql`
 
 export const QUERY_CHECKOUT = gql`
   query getCheckout($services: [ID]!) {
-    checkout(services: $products) {
+    checkout(services: $services) {
       session
     }
   }
