@@ -68,7 +68,7 @@ function Detail() {
 
   return (
     <>
-      {currentProduct && cart ? (
+      {currentService && cart ? (
         <div className="container my-1">
           <Link to="/">← Back to Services</Link>
 
