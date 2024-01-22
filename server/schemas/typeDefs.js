@@ -9,7 +9,11 @@ const typeDefs = `
     name: String
     description: String
     image: String
-    availability: String
+    availability_1: String
+    availability_2: String
+    contact_name: String
+    contact_phone: String
+    contact_email: String
     contact: String
     price: Float
     category: Category

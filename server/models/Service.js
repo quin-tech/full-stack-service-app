@@ -22,8 +22,13 @@ const serviceSchema = new Schema({
   quantity: {
     type: Number
   },
-  availability: {
-    type: String
+  availability_1: {
+    type: Date,
+    required: true
+  },
+  availability_2: {
+    type: Date,
+    required: true
   },
   contact_name: {
     type: String,
