@@ -1,5 +1,5 @@
 {
-  "name": "mern-shopping",
+  "name": "hire-service",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -15,5 +15,9 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "mongoose": "^8.1.0"
   }
 }
