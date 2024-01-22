@@ -29,10 +29,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[0]._id,
       price: 100.00,
-      contact_name: 'Jane Johnson',
-      contact_email: 'jane.j@speedy.com',
-      availability_1: new Date('2024-02-10T08:00Z'),
-      availability_2: new Date('2024-02-11T08:00Z')
+      contact: 'Jane Johnson',
+      availability: '2024-02-10T08:00Z'
     },
     {
       name: 'Antique Movers',
@@ -41,10 +39,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[0]._id,
       price: 175.00,
-      contact_name: 'Tim Thomas',
-      contact_email: 'time.t@oldstuff.com',
-      availability_1: new Date('2024-02-12T10:30Z'),
-      availability_2: new Date('2024-02-13T11:30Z')
+      contact: 'Tim Thomas',
+      availability: '2024-02-12T10:30Z'
     },
     {
       name: 'The Fixers',
@@ -53,10 +49,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[1]._id,
       price: 300.00,
-      contact_name: 'Greta Gershwin',
-      contact_email: 'greta.g@repairs.com',
-      availability_1: new Date('2024-02-14T07:00Z'),
-      availability_2: new Date('2024-02-15T07:00Z')
+      contact: 'Greta Gershwin',
+      availability: '2024-02-14T07:00Z'
     },
     {
       name: 'Floor Renewal',
@@ -65,11 +59,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[1]._id,
       price: 400.00,
-      contact_name: 'Fred Fauntleroy',
-      contact_email: 'fred.f@we-do-floors.com',
-      availability_1: new Date('2024-02-16T12:00Z'),
-      availability_2: new Date('2024-02-17T13:00Z')
-
+      contact: 'Fred Fauntleroy',
+      availability: '2024-02-16T12:00Z'
     },
     {
       name: 'See It Sparkle',
@@ -78,10 +69,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[2]._id,
       price: 150.00,
-      contact_name: 'Eva Edwards',
-      contact_email: 'eva.e@sparkle.com',
-      availability_1: new Date('2024-02-18T14:30Z'),
-      availability_2: new Date('2024-02-19T15:30Z')
+      contact: 'Eva Edwards',
+      availability: '2024-02-18T14:30Z'
 
     },
     {
@@ -91,10 +80,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[3]._id,
       price: 3000.00,
-      contact_name: 'Mark McCormick',
-      contact_email: 'mark.m@move-satisfied.com',
-      availability_1: new Date('2024-02-20T10:00Z'),
-      availability_2: new Date('2024-02-21T11:00Z')
+      contact: 'Mark McCormick',
+      availability: '2024-02-20T10:00Z'
     },
     {
       name: 'Green Thumb Landscaping',
@@ -103,10 +90,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[4]._id,
       price: 400.00,
-      contact_name: 'Wendy Washington',
-      contact_email: 'wendy.w@greenthumb.com',
-      availability_1: new Date('2024-02-22T17:00Z'),
-      availability_2: new Date('2024-02-23T18:30Z')
+      contact: 'Wendy Washington',
+      availability: '2024-02-22T17:00Z'
     },
     {
       name: 'Assembly Experts',
@@ -115,10 +100,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[5]._id,
       price: 75.00,
-      contact_name: 'Bert Brown',
-      contact_email: 'bert.b@assembler-of-things.com',
-      availability_1: new Date('2024-02-24T14:00Z'),
-      availability_2: new Date('2024-02-25T15:00Z')
+      contact: 'Bert Brown',
+      availability: '2024-02-24T14:00Z'
     },
     {
       name: 'Healthy Food Express',
@@ -127,10 +110,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[6]._id,
       price: 40.00,
-      contact_name: 'Polly Peterson',
-      contact_email: 'polly.p@healthfood.com',
-      availability_1: new Date('2024-02-26T16:30Z'),
-      availability_2: new Date('2024-02-27T17:30Z')
+      contact: 'Polly Peterson',
+      availability: '2024-02-26T16:30Z'
     },
     {
       name: 'Bouquet Delivery',
@@ -139,10 +120,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[6]._id,
       price: 200.00,
-      contact_name: 'Alan Anderson',
-      contact_email: 'mr.anderson@floral.com',
-      availability_1: new Date('2024-02-28T18:00Z'),
-      availability_2: new Date('2024-02-29T17:00Z')
+      contact: 'Alan Anderson',
+      availability: '2024-02-28T18:00Z'
     },
     {
       name: 'Bouquet Delivery',
@@ -151,10 +130,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[6]._id,
       price: 200.00,
-      contact_name: 'Alan Anderson',
-      contact_email: 'mr.anderson@floral.com',
-      availability_1: new Date('2024-03-01T08:00Z'),
-      availability_2: new Date('2024-03-02T08:00Z')
+      contact: 'Alan Anderson',
+      availability: '2024-03-01T08:00Z'
     },
     {
       name: 'Happy Hound Dog Walking',
@@ -163,10 +140,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[7]._id,
       price: 50.00,
-      contact_name: 'Judith Jenkins',
-      contact_email: 'judy.j@walk-your-dog.com',
-      availability_1: new Date('2024-03-03T09:00Z'),
-      availability_2: new Date('2024-03-04T10:00Z')
+      contact: 'Judith Jenkins',
+      availability: '2024-03-03T09:00Z'
     },
     {
       name: 'Home-Pet-Care.com',
@@ -175,10 +150,8 @@ db.once('open', async () => {
       image: 'home-store-front-door.jpg',
       category: categories[8]._id,
       price: 70.00,
-      contact_name: 'Sally Smith',
-      contact_email: 'sally.s@petsitter.com',
-      availability_1: new Date('2024-03-05T11:30Z'),
-      availability_2: new Date('2024-03-06T12:30Z')
+      contact: 'Sally Smith',
+      availability: '2024-03-05T11:30Z'
     },
   ]);
 
