@@ -7,16 +7,8 @@ import { useDispatch } from "react-redux";
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
 
-  // const [, dispatch] = useStoreContext();
 
   const removeFromCart = item => {
-    // old redux
-    // dispatch({
-    //   type: REMOVE_FROM_CART,
-    //   _id: item._id
-    // });
-
-    // new redux
 
     dispatch(stateActions.removeFromCart(item._id));
 
@@ -27,25 +19,10 @@ const CartItem = ({ item }) => {
   const onChange = (e) => {
     const value = e.target.value;
     if (value === '0') {
-      // Old Redux
-      // dispatch({
-      //   type: REMOVE_FROM_CART,
-      //   _id: item._id
-      // });
-
-      // new Redux
       dispatch(stateActions.removeFromCart(item._id));
       idbPromise('cart', 'delete', { ...item });
 
     } else {
-      // Old Redux
-      // dispatch({
-      //   type: UPDATE_CART_QUANTITY,
-      //   _id: item._id,
-      //   purchaseQuantity: parseInt(value)
-      // });
-
-      // New Redux 
       dispatch(stateActions.updateCartQuantity({ _id: item._id, purchaseQuantity: parseInt(value)}))
       idbPromise('cart', 'put', { ...item, purchaseQuantity: parseInt(value) });
 
