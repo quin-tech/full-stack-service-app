@@ -1,133 +1,151 @@
 const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const { User, Service, Category } = require('../models');
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
   await cleanDB('Category', 'categories');
-  await cleanDB('Product', 'products');
+  await cleanDB('Service', 'services');
   await cleanDB('User', 'users');
 
   const categories = await Category.insertMany([
-    { name: 'Food' },
-    { name: 'Household Supplies' },
-    { name: 'Electronics' },
-    { name: 'Books' },
-    { name: 'Toys' }
+    { name: 'Delivery' },
+    { name: 'Home Repairs' },
+    { name: 'Cleaning' },
+    { name: 'Moving' },
+    { name: 'Gardening-Outdoor' },
+    { name: 'Assembly' },
+    { name: 'Shopping-Errands' },
+    { name: 'Dog Walking' },
+    { name: 'Pet Sitting' },
   ]);
 
   console.log('categories seeded');
 
-  const products = await Product.insertMany([
+  const services = await Service.insertMany([
     {
-      name: 'Tin of Cookies',
+      name: 'Speedy Delivery',
       description:
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-      image: 'cookie-tin.jpg',
+        'We deliver anything that can fit in the van and is legal',
+      image: 'home-store-front-door.jpg',
       category: categories[0]._id,
-      price: 2.99,
-      quantity: 500
+      price: 100.00,
+      contact: 'Jane Johnson',
+      availability: '2024-02-10T08:00Z'
     },
     {
-      name: 'Canned Coffee',
+      name: 'Antique Movers',
       description:
-        'Praesent sed lacinia mauris. Nulla congue nibh magna, at feugiat nunc scelerisque quis. Donec iaculis rutrum vulputate. Suspendisse lectus sem, vulputate ac lectus sed, placerat consequat dui.',
-      image: 'canned-coffee.jpg',
+        'Expert packing / fully bonded and insured / careful as if it was our own',
+      image: 'home-store-front-door.jpg',
       category: categories[0]._id,
-      price: 1.99,
-      quantity: 500
+      price: 175.00,
+      contact: 'Tim Thomas',
+      availability: '2024-02-12T10:30Z'
     },
     {
-      name: 'Toilet Paper',
-      category: categories[1]._id,
+      name: 'The Fixers',
       description:
-        'Donec volutpat erat erat, sit amet gravida justo sodales in. Phasellus tempus euismod urna. Proin ultrices nisi ut ipsum congue, vitae porttitor libero suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacinia a nisi non congue.',
-      image: 'toilet-paper.jpg',
-      price: 7.99,
-      quantity: 20
-    },
-    {
-      name: 'Handmade Soap',
+        'Small repairs in the home: appliances, walls, non-union plumbing and electrical, clean gutters, painting',
+      image: 'home-store-front-door.jpg',
       category: categories[1]._id,
-      description:
-        'Praesent placerat, odio vel euismod venenatis, lectus arcu laoreet felis, et fringilla sapien turpis vestibulum nisl.',
-      image: 'soap.jpg',
-      price: 3.99,
-      quantity: 50
+      price: 300.00,
+      contact: 'Greta Gershwin',
+      availability: '2024-02-14T07:00Z'
     },
     {
-      name: 'Set of Wooden Spoons',
+      name: 'Floor Renewal',
+      description:
+        'Specialize in wood floor renovation, carpet replacement and carpet cleaning.',
+      image: 'home-store-front-door.jpg',
       category: categories[1]._id,
-      description:
-        'Vivamus ut turpis in purus pretium mollis. Donec turpis odio, semper vel interdum ut, vulputate at ex. Duis dignissim nisi vel tortor imperdiet finibus. Aenean aliquam sagittis rutrum.',
-      image: 'wooden-spoons.jpg',
-      price: 14.99,
-      quantity: 100
+      price: 400.00,
+      contact: 'Fred Fauntleroy',
+      availability: '2024-02-16T12:00Z'
     },
     {
-      name: 'Camera',
+      name: 'See It Sparkle',
+      description:
+        'Full house cleaning and custom house cleaning available.',
+      image: 'home-store-front-door.jpg',
       category: categories[2]._id,
-      description:
-        'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
-      image: 'camera.jpg',
-      price: 399.99,
-      quantity: 30
+      price: 150.00,
+      contact: 'Eva Edwards',
+      availability: '2024-02-18T14:30Z'
+
     },
     {
-      name: 'Tablet',
-      category: categories[2]._id,
+      name: 'McCormick Movers',
       description:
-        'In sodales, ipsum quis ultricies porttitor, tellus urna aliquam arcu, eget venenatis purus ligula ut nisi. Fusce ut felis dolor. Mauris justo ante, aliquet non tempus in, tempus ac lorem. Aliquam lacinia dolor eu sem eleifend ultrices. Etiam mattis metus metus. Sed ligula dui, placerat non turpis vitae, suscipit volutpat elit. Phasellus sagittis, diam elementum suscipit fringilla, libero mauris scelerisque ex, ac interdum diam erat non sapien.',
-      image: 'tablet.jpg',
-      price: 199.99,
-      quantity: 30
-    },
-    {
-      name: 'Tales at Bedtime',
+        'Small jobs / Big jobs / Local home moves',
+      image: 'home-store-front-door.jpg',
       category: categories[3]._id,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare diam quis eleifend rutrum. Aliquam nulla est, volutpat non enim nec, pharetra gravida augue. Donec vitae dictum neque. Pellentesque arcu lorem, fringilla non ligula ac, tristique bibendum erat. Ut a semper nibh. Quisque a mi et mi tempor ultricies. Maecenas eu ipsum eu enim hendrerit accumsan at euismod urna.',
-      image: 'bedtime-book.jpg',
-      price: 9.99,
-      quantity: 100
+      price: 3000.00,
+      contact: 'Mark McCormick',
+      availability: '2024-02-20T10:00Z'
     },
     {
-      name: 'Spinning Top',
+      name: 'Green Thumb Landscaping',
+      description:
+        'Weekly maintance / home outdoor projects / tree trimming and removal.',
+      image: 'home-store-front-door.jpg',
       category: categories[4]._id,
-      description: 'Ut vulputate hendrerit nibh, a placerat elit cursus interdum.',
-      image: 'spinning-top.jpg',
-      price: 1.99,
-      quantity: 1000
+      price: 400.00,
+      contact: 'Wendy Washington',
+      availability: '2024-02-22T17:00Z'
     },
     {
-      name: 'Set of Plastic Horses',
-      category: categories[4]._id,
+      name: 'Assembly Experts',
       description:
-        'Sed a mauris condimentum, elementum enim in, rhoncus dui. Phasellus lobortis leo odio, sit amet pharetra turpis porta quis.',
-      image: 'plastic-horses.jpg',
-      price: 2.99,
-      quantity: 1000
+        'My buddies say Diversify - would yeh?  I say, No way man - I live for putting things together!',
+      image: 'home-store-front-door.jpg',
+      category: categories[5]._id,
+      price: 75.00,
+      contact: 'Bert Brown',
+      availability: '2024-02-24T14:00Z'
     },
     {
-      name: 'Teddy Bear',
-      category: categories[4]._id,
+      name: 'Healthy Food Express',
       description:
-        'Vestibulum et erat finibus erat suscipit vulputate sed vitae dui. Ut laoreet tellus sit amet justo bibendum ultrices. Donec vitae felis vestibulum, congue augue eu, finibus turpis.',
-      image: 'teddy-bear.jpg',
-      price: 7.99,
-      quantity: 100
+        'Phone orders / Online orders / Pickup what you order.',
+      image: 'home-store-front-door.jpg',
+      category: categories[6]._id,
+      price: 40.00,
+      contact: 'Polly Peterson',
+      availability: '2024-02-26T16:30Z'
     },
     {
-      name: 'Alphabet Blocks',
-      category: categories[4]._id,
+      name: 'Bouquet Delivery',
       description:
-        'Morbi consectetur viverra urna, eu fringilla turpis faucibus sit amet. Suspendisse potenti. Donec at dui ac sapien eleifend hendrerit vel sit amet lectus.',
-      image: 'alphabet-blocks.jpg',
-      price: 9.99,
-      quantity: 600
-    }
+        'In-store stock of beautiful bouquets and some live plants, or Order online or by phone. Visit our website / Same day delivery',
+      image: 'home-store-front-door.jpg',
+      category: categories[6]._id,
+      price: 200.00,
+      contact: 'Alan Anderson',
+      availability: '2024-02-28T18:00Z'
+    },
+    {
+      name: 'Happy Hound Dog Walking',
+      description:
+        '15 years experience in the business / Trained and background-checked walkers / Any size dogs.',
+      image: 'home-store-front-door.jpg',
+      category: categories[7]._id,
+      price: 50.00,
+      contact: 'Judith Jenkins',
+      availability: '2024-03-03T09:00Z'
+    },
+    {
+      name: 'Home-Pet-Care.com',
+      description:
+        'Contact us online / 5 years experience with dogs, cats, and 10 other types of pets / fully insured.',
+      image: 'home-store-front-door.jpg',
+      category: categories[8]._id,
+      price: 70.00,
+      contact: 'Sally Smith',
+      availability: '2024-03-05T11:30Z'
+    },
   ]);
 
-  console.log('products seeded');
+  console.log('services seeded');
 
   await User.create({
     firstName: 'Pamela',
@@ -136,7 +154,7 @@ db.once('open', async () => {
     password: 'password12345',
     orders: [
       {
-        products: [products[0]._id, products[0]._id, products[1]._id]
+        services: [services[0]._id, services[0]._id, services[1]._id]
       }
     ]
   });
