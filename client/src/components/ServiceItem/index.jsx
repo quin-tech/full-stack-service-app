@@ -13,7 +13,8 @@ function ServiceItem(item) {
     image,
     name,
     _id,
-    price
+    price,
+    availability
   } = item;
 
   const { cart } = state
