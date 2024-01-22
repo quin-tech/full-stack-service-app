@@ -1,7 +1,5 @@
 import {useEffect} from 'react';
 import ServiceItem from '../ServiceItem';
-import {useStoreContext} from '../../utils/GlobalState';
-import {UPDATE_PRODUCTS} from '../../utils/actions';
 import {useQuery} from '@apollo/client';
 import {QUERY_SERVICES} from '../../utils/queries';
 import {idbPromise} from '../../utils/helpers';
