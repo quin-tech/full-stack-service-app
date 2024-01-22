@@ -53,7 +53,6 @@ function ServiceList() {
               image={service.image}
               name={service.name}
               price={service.price}
-              quantity={service.quantity}
             />
           ))}
         </div>
