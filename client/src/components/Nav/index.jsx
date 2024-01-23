@@ -42,6 +42,20 @@ function a11yProps(index) {
   };
 }
 
+// function samePageLinkNavigation(event) {
+//   if (
+//     event.defaultPrevented ||
+//     event.button !== 0 || // ignore everything but left-click
+//     event.metaKey ||
+//     event.ctrlKey ||
+//     event.altKey ||
+//     event.shiftKey
+//   ) {
+//     return false;
+//   }
+//   return true;
+// }
+
 function LinkTab(props) {
   return (
     <Tab
@@ -83,10 +97,10 @@ function Nav() {
         role="navigation"
       >
         {/* <img src={logo} /> */}
-        <LinkTab label="Home" {...a11yProps(0)} href="../../pages/Home.jsx"/>
-        <LinkTab label="Profile" {...a11yProps(1)} href="../../pages/OrderHistory.jsx"/>
-        <LinkTab label="Sign In" {...a11yProps(2)} href="../../pages/Login.jsx"/>
-        <LinkTab label="Sign Up" {...a11yProps(3)} href="../../pages/Signup.jsx"/>
+        <LinkTab label="Home" {...a11yProps(0)} href="/"/>
+        <LinkTab label="Profile" {...a11yProps(1)} href="/orderHistory"/>
+        <LinkTab label="Sign In" {...a11yProps(2)} href="/login"/>
+        <LinkTab label="Sign Up" {...a11yProps(3)} href="/signup"/>
       </Tabs>
 
       <TabPanel value={value} index={0}>
