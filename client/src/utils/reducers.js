@@ -1,5 +1,5 @@
 import {
-  UPDATE_PRODUCTS,
+  UPDATE_SERVICES,
   ADD_TO_CART,
   UPDATE_CART_QUANTITY,
   REMOVE_FROM_CART,
@@ -12,7 +12,7 @@ import {
 
 
 const INITIAL_STATE = {
-  products: [],
+  services: [],
   cart: [],
   cartOpen: false,
   categories: [],
@@ -20,45 +20,38 @@ const INITIAL_STATE = {
 };
 
 
-// TODO: To get a better understand of how a reducer works - add comments to the various actions in the reducer
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    // TODO: Add a comment describing the functionality of the UPDATE_PRODUCTS case
-    // Your comment here
     //   updating the products state with whatever
     //   we are getting from the action
-    case UPDATE_PRODUCTS:
+    case UPDATE_SERVICES:
       return {
         ...state,
-        products: [...action.products],
+        services: [...action.services],
       };
 
     case ADD_TO_CART:
       return {
         ...state,
         cartOpen: true,
-        cart: [...state.cart, action.product],
+        cart: [...state.cart, action.service],
       };
 
     case ADD_MULTIPLE_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, ...action.products],
+        cart: [...state.cart, ...action.services],
       };
-    // TODO: Add a comment describing the functionality of the UPDATE_CART_QUANTITY case
-    // Your comment here
     case UPDATE_CART_QUANTITY:
       // sets cartOpen to true to display the cart
       return {
         ...state,
         cartOpen: true,
-        // going through each product and for each product,
-        // we are setting its quantity to whatever action.purchaseQuantity is
-        cart: state.cart.map((product) => {
-          if (action._id === product._id) {
-            product.purchaseQuantity = action.purchaseQuantity;
+        cart: state.cart.map((service) => {
+          if (action._id === service._id) {
+            service.purchaseQuantity = action.purchaseQuantity;
           }
-          return product;
+          return service;
         }),
       };
 
@@ -66,8 +59,8 @@ export const reducer = (state = INITIAL_STATE, action) => {
     // Your comment here
     case REMOVE_FROM_CART:
       // Creating a brand new array by removing all the items that match whatever action._id is
-      let newState = state.cart.filter((product) => {
-        return product._id !== action._id;
+      let newState = state.cart.filter((service) => {
+        return service._id !== action._id;
       });
 
       return {
@@ -102,9 +95,6 @@ export const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         currentCategory: action.currentCategory,
       };
-
-    // TODO: Add a comment describing what the default case is for
-    // Your comment here
     //   in case we dont have a matching action type
     //   we return the current state by default in order to not lose any previous state at all
     default:

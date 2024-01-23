@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
-  products: [],
+  services: [],
   cart: [],
   cartOpen: false,
   categories: [],
@@ -15,9 +15,9 @@ const stateSlice = createSlice({
   // and make our reducer that this "slice" will use
   // to automatically listen for the actionTypes that we will be dispatching
   reducers: {
-    updateProducts: (state, action) => {
+    updateServices: (state, action) => {
       console.log(action.payload);
-      state.products = [...action.payload];
+      state.services = [...action.payload];
     },
     addToCart: (state, action) => {
       state.cartOpen = true;
@@ -28,16 +28,16 @@ const stateSlice = createSlice({
     },
     updateCartQuantity: (state, action) => {
       state.cartOpen = true;
-      state.cart = state.cart.map((product) => {
-        if (action.payload._id === product._id) {
-          product.purchaseQuantity = action.payload.purchaseQuantity;
+      state.cart = state.cart.map((service) => {
+        if (action.payload._id === service._id) {
+          service.purchaseQuantity = action.payload.purchaseQuantity;
         }
-        return product;
+        return service;
       });
     },
     removeFromCart: (state, action) => {
-      const newState = state.cart.filter((product) => {
-        return product._id !== action.payload;
+      const newState = state.cart.filter((service) => {
+        return service._id !== action.payload;
       });
       state.cartOpen = newState.length > 0;
       state.cart = newState;

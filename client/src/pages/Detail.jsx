@@ -5,14 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 import Cart from '../components/Cart';
-import { useStoreContext } from '../utils/GlobalState';
-import {
-  REMOVE_FROM_CART,
-  UPDATE_CART_QUANTITY,
-  ADD_TO_CART,
-  UPDATE_PRODUCTS,
-} from '../utils/actions';
-import { QUERY_PRODUCTS } from '../utils/queries';
+import { QUERY_SERVICES } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 import { stateActions } from '../utils/stateSlice';
@@ -24,58 +17,36 @@ function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const [currentProduct, setCurrentProduct] = useState({});
+  const [currentService, setCurrentService] = useState({});
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_SERVICES);
 
-  const { products, cart } = state;
+  const { services, cart } = state;
 
   useEffect(() => {
     // already in global store
-    if (products.length) {
-      setCurrentProduct(products.find((product) => product._id === id));
+    if (services.length) {
+      setCurrentService(services.find((service) => service._id === id));
     }
     // retrieved from server
     else if (data) {
-      // Old redux code
-      // dispatch({
-      //   type: UPDATE_PRODUCTS,
-      //   products: data.products,
-      // });
+      dispatch(stateActions.updateServices(data.services));
 
-      // new RTK code
-      dispatch(stateActions.updateProducts(data.products));
-
-      data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
+      data.services.forEach((service) => {
+        idbPromise('services', 'put', service);
       });
     }
     // get cache from idb
     else if (!loading) {
-      idbPromise('products', 'get').then((indexedProducts) => {
-        // Old Redux
-        // dispatch({
-        //   type: UPDATE_PRODUCTS,
-        //   products: indexedProducts,
-        // });
-
-        // New RTK
-        dispatch(stateActions.updateProducts(indexedProducts));
+      idbPromise('services', 'get').then((indexedServices) => {
+        dispatch(stateActions.updateServices(indexedServices));
       });
     }
-  }, [products, data, loading, dispatch, id]);
+  }, [services, data, loading, dispatch, id]);
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
     if (itemInCart) {
-      // Old redux
-      // dispatch({
-      //   type: UPDATE_CART_QUANTITY,
-      //   _id: id,
-      //   purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-      // });
-
-      // new Redux
 
       dispatch(stateActions.updateCartQuantity({ _id: id, purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1}))
       idbPromise('cart', 'put', {
@@ -83,45 +54,33 @@ function Detail() {
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
     } else {
-      // Old redux
-      // dispatch({
-      //   type: ADD_TO_CART,
-      //   product: { ...currentProduct, purchaseQuantity: 1 },
-      // });
-
-      // New Redux
-      dispatch(stateActions.addToCart({ ...currentProduct, purchaseQuantity: 1 }))
-      idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
+      dispatch(stateActions.addToCart({ ...currentService, purchaseQuantity: 1 }))
+      idbPromise('cart', 'put', { ...currentService, purchaseQuantity: 1 });
     }
   };
 
   const removeFromCart = () => {
-// Old Redux
-    // dispatch({
-    //   type: REMOVE_FROM_CART,
-    //   _id: currentProduct._id,
-    // });
 
-    dispatch(stateActions.removeFromCart(currentProduct._id))
+    dispatch(stateActions.removeFromCart(currentService._id))
 
-    idbPromise('cart', 'delete', { ...currentProduct });
+    idbPromise('cart', 'delete', { ...currentService });
   };
 
   return (
     <>
-      {currentProduct && cart ? (
+      {currentService && cart ? (
         <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+          <Link to="/">← Back to Services</Link>
 
-          <h2>{currentProduct.name}</h2>
+          <h2>{currentService.name}</h2>
 
-          <p>{currentProduct.description}</p>
+          <p>{currentService.description}</p>
 
           <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
+            <strong>Price:</strong>${currentService.price}{' '}
             <button onClick={addToCart}>Add to Cart</button>
             <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
+              disabled={!cart.find((p) => p._id === currentService._id)}
               onClick={removeFromCart}
             >
               Remove from Cart
@@ -129,8 +88,8 @@ function Detail() {
           </p>
 
           <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
+            src={`/images/${currentService.image}`}
+            alt={currentService.name}
           />
         </div>
       ) : null}
