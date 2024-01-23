@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../utils/queries';
+import Button from '@mui/material/Button';
 
 function Profile() {
   const { data } = useQuery(QUERY_USER);
@@ -19,8 +20,16 @@ function Profile() {
         {user ? (
           <>
             <h2>
-              Order History for {user.firstName} {user.lastName}
+              Profile 
             </h2>
+            <p>Name: {user.firstName} {user.lastName}</p>
+            <p>Email: {user.email}</p>
+            <Button variant="contained" color="success">
+              Add a Service
+            </Button>
+            <p>Current Listings:</p>
+
+            <p>Purchase History:</p>
             {user.orders.map((order) => (
               <div key={order._id} className="my-2">
                 <h3>
