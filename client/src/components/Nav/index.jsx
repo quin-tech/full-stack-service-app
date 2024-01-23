@@ -4,8 +4,10 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+// import logo from '../../../public/images/skill-magnet-logo.png';
+
 // import Auth from "../../utils/auth";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -40,29 +42,51 @@ function a11yProps(index) {
   };
 }
 
+function LinkTab(props) {
+  return (
+    <Tab
+      component="a"
+      onClick={(event) => {
+        // Routing libraries handle this, you can remove the onClick handle when using them.
+        if (samePageLinkNavigation(event)) {
+          event.preventDefault();
+        }
+      }}
+      aria-current={props.selected && 'page'}
+      {...props}
+    />
+  );
+}
+
 function Nav() {
 
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    if (
+      event.type !== 'click' ||
+      (event.type === 'click' && samePageLinkNavigation(event))
+    ) {
+      setValue(newValue);
+    }
   };
 
   return (
     <Box
-      sx={{display: 'flex', position: 'relative', top: '5em'}}
+      sx={{display: 'flex', position: 'relative', top: '1em'}}
     >
       <Tabs
         orientation="vertical"
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: 'divider' }}
+        role="navigation"
       >
-        <Tab label="Home" {...a11yProps(0)} />
-        <Tab label="Profile" {...a11yProps(1)} />
-        <Tab label="Sign In" {...a11yProps(2)} />
-        <Tab label="Sign Up" {...a11yProps(3)} />
+        {/* <img src={logo} /> */}
+        <LinkTab label="Home" {...a11yProps(0)} href="../../pages/Home.jsx"/>
+        <LinkTab label="Profile" {...a11yProps(1)} href="../../pages/OrderHistory.jsx"/>
+        <LinkTab label="Sign In" {...a11yProps(2)} href="../../pages/Login.jsx"/>
+        <LinkTab label="Sign Up" {...a11yProps(3)} href="../../pages/Signup.jsx"/>
       </Tabs>
 
       <TabPanel value={value} index={0}>
