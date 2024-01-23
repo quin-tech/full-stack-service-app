@@ -137,9 +137,9 @@ input:focus {
 .container {
   position: relative;
   width: 85%;
-  margin-left: 6.5em;
+  margin-left: 110px;
   margin-right: auto;
-  top: -8em;
+  top: -12.2em;
 }
 
 .flex-row {

@@ -1,13 +1,11 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-// import logo from '../../../public/images/skill-magnet-logo.png';
-
-// import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
+import logo from '../../../public/images/skill-magnet-logo.png';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -21,7 +19,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ paddingLeft: '25%', paddingTop: '3px' }}>
+        <Box sx={{ paddingLeft: '25%', paddingTop: '25px' }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -42,30 +40,10 @@ function a11yProps(index) {
   };
 }
 
-// function samePageLinkNavigation(event) {
-//   if (
-//     event.defaultPrevented ||
-//     event.button !== 0 || // ignore everything but left-click
-//     event.metaKey ||
-//     event.ctrlKey ||
-//     event.altKey ||
-//     event.shiftKey
-//   ) {
-//     return false;
-//   }
-//   return true;
-// }
-
 function LinkTab(props) {
   return (
     <Tab
       component="a"
-      onClick={(event) => {
-        // Routing libraries handle this, you can remove the onClick handle when using them.
-        if (samePageLinkNavigation(event)) {
-          event.preventDefault();
-        }
-      }}
       aria-current={props.selected && 'page'}
       {...props}
     />
@@ -74,20 +52,17 @@ function LinkTab(props) {
 
 function Nav() {
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
 
   const handleChange = (event, newValue) => {
-    if (
-      event.type !== 'click' ||
-      (event.type === 'click' && samePageLinkNavigation(event))
-    ) {
-      setValue(newValue);
-    }
+    setValue(newValue);
   };
+
+  console.log(value);
 
   return (
     <Box
-      sx={{display: 'flex', position: 'relative', top: '1em'}}
+      sx={{display: 'flex', position: 'relative' }}
     >
       <Tabs
         orientation="vertical"
@@ -96,25 +71,25 @@ function Nav() {
         aria-label="Vertical tabs example"
         role="navigation"
       >
-        {/* <img src={logo} /> */}
-        <LinkTab label="Home" {...a11yProps(0)} href="/"/>
-        <LinkTab label="Profile" {...a11yProps(1)} href="/orderHistory"/>
-        <LinkTab label="Sign In" {...a11yProps(2)} href="/login"/>
-        <LinkTab label="Sign Up" {...a11yProps(3)} href="/signup"/>
+        <Box sx={{ width: '100px', display: 'flex' }}><img src={logo} /></Box>
+        <LinkTab component={Link} label="Home" {...a11yProps(1)} to="/"/>
+        <LinkTab component={Link} label="Profile" {...a11yProps(2)} to="/orderHistory"/>
+        <LinkTab component={Link} label="Sign In" {...a11yProps(3)} to="/login"/>
+        <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
 
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={1}>
         <h4>Home</h4>
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={2}>
         <h4>Profile</h4>
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={value} index={3}>
         <h4>Sign In</h4>
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      <TabPanel value={value} index={4}>
         <h4>Sign Up</h4>
-      </TabPanel>
+      </TabPanel>      
     </Box>
   );
 
@@ -156,18 +131,3 @@ export default Nav;
 //     );
 //   }
 // }
-
-// return (
-//   <header className="flex-row px-1">
-//     <h1>
-//       <Link to="/">
-//         <span role="img" aria-label="shopping bag">🛍️</span>
-//         -Shop-Shop
-//       </Link>
-//     </h1>
-
-//     <nav>
-//       {showNavigation()}
-//     </nav>
-//   </header>
-// );
