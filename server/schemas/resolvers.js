@@ -59,20 +59,21 @@ const resolvers = {
       const { services } = await order.populate('services');
 
       for (let i = 0; i < services.length; i++) {
-        const service = await stripe.services.create({
+        const service = await stripe.products.create({
           name: services[i].name,
           description: services[i].description,
           images: [`${url}/images/${services[i].image}`]
         });
 
         const price = await stripe.prices.create({
-          service: service.id,
+          product: service.id,
           unit_amount: services[i].price * 100,
           currency: 'usd',
         });
 
         line_items.push({
           price: price.id,
+          quantity: 1
         });
       }
 
