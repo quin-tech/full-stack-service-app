@@ -1,3 +1,10 @@
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
 import { idbPromise } from "../../utils/helpers";
@@ -14,7 +21,8 @@ function ServiceItem(item) {
     name,
     _id,
     price,
-    availability
+    availability,
+    contact
   } = item;
 
   const { cart } = state
@@ -35,19 +43,27 @@ function ServiceItem(item) {
   }
 
   return (
-    <div className="card px-1 py-1">
-      <Link to={`/services/${_id}`}>
-        <img
-          alt={name}
-          src={`/images/${image}`}
+    <div>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia
+          sx={{ height: 140 }}
+          image={`/images/${image}`}
+          title={name}
         />
-        <p>{name}</p>
-      </Link>
-      <div>
-        <div>{availability} </div>
-        <span>${price}</span>
-      </div>
-      <button onClick={addToCart}>Add to cart</button>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            ${price}
+            {availability}
+            {contact}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size='small' onClick={addToCart}>Add to cart</Button>
+        </CardActions>
+      </Card>
     </div>
   );
 }

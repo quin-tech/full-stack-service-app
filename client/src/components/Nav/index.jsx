@@ -6,6 +6,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import logo from '../../../public/images/skill-magnet-logo.png';
+import Auth from "../../utils/auth";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -19,7 +20,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ paddingLeft: '25%', paddingTop: '25px' }}>
+        <Box sx={{ paddingLeft: '35%', paddingTop: '25px' }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -60,6 +61,41 @@ function Nav() {
 
   console.log(value);
 
+  if (Auth.loggedIn()) {
+  return (
+    <Box
+      sx={{display: 'flex', position: 'relative' }}
+    >
+      <Tabs
+        orientation="vertical"
+        value={value}
+        onChange={handleChange}
+        aria-label="Vertical tabs example"
+        role="navigation"
+      >
+        <Box sx={{ width: '100px', display: 'flex' }}><img src={logo} /></Box>
+        <LinkTab component={Link} label="Home" {...a11yProps(1)} to="/"/>
+        <LinkTab component={Link} label="Profile" {...a11yProps(2)} to="/orderHistory"/>
+        <LinkTab component={Link} label="Sign Out" {...a11yProps(3)} to="/" onClick={() => Auth.logout()}/>
+        <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
+      </Tabs>
+
+      <TabPanel value={value} index={1}>
+        <h4>Home</h4>
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <h4>Profile</h4>
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <h4>Sign Out</h4>
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        <h4>Sign Up</h4>
+      </TabPanel>      
+    </Box>
+  );
+
+} else {
   return (
     <Box
       sx={{display: 'flex', position: 'relative' }}
@@ -92,42 +128,6 @@ function Nav() {
       </TabPanel>      
     </Box>
   );
-
-}
+}}
 
 export default Nav;
-
-// function showNavigation() {
-//   if (Auth.loggedIn()) {
-//     return (
-//       <ul className="flex-row">
-//         <li className="mx-1">
-//           <Link to="/orderHistory">
-//             Order History
-//           </Link>
-//         </li>
-//         <li className="mx-1">
-//           {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-//           <a href="/" onClick={() => Auth.logout()}>
-//             Logout
-//           </a>
-//         </li>
-//       </ul>
-//     );
-//   } else {
-//     return (
-//       <ul className="flex-row">
-//         <li className="mx-1">
-          // <Link to="/signup">
-          //   Signup
-          // </Link>
-//         </li>
-//         <li className="mx-1">
-          // <Link to="/login">
-          //   Login
-          // </Link>
-//         </li>
-//       </ul>
-//     );
-//   }
-// }

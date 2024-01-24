@@ -1,21 +1,30 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 import {useEffect} from 'react';
-import ServiceItem from '../ServiceItem';
+import { Link } from "react-router-dom";
 import {useQuery} from '@apollo/client';
 import {QUERY_SERVICES} from '../../utils/queries';
 import {idbPromise} from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 import {useSelector, useDispatch} from 'react-redux';
 import {stateActions} from '../../utils/stateSlice';
+import Typography from '@mui/material/Typography';
 
 function ServiceList() {
   const state = useSelector((state) => state.globalState);
-
   const dispatch = useDispatch();
-  // const [state, dispatch] = useStoreContext();
-
   const {currentCategory} = state;
-
   const {loading, data} = useQuery(QUERY_SERVICES);
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
   useEffect(() => {
     if (data) {
@@ -43,21 +52,25 @@ function ServiceList() {
 
   return (
     <div className="my-2">
-      <h2>Our Services:</h2>
+      <h5>Our Services:</h5>
       {state.services.length ? (
-        <div className="flex-row">
-          {filterServices().map((service) => (
-            <ServiceItem
-              key={service._id}
-              _id={service._id}
-              image={service.image}
-              name={service.name}
-              price={service.price}
-            />
-          ))}
-        </div>
+        <Box sx={{ width: '100%' }}>
+          <Stack spacing={2}>
+            {filterServices().map((service) => (
+              <Link to={`/services/${service._id}`}>
+                <Item>
+                  <Typography gutterBottom variant="h5" component="div">
+                  {service.name}
+                  {service.price}
+                </Typography>
+                </Item>
+              </Link>
+            ))}
+
+          </Stack>
+        </Box>
       ) : (
-        <h3>You haven't added any services yet!</h3>
+        <h6>You haven't added any services yet!</h6>
       )}
       {loading ? <img src={spinner} alt="loading"/> : null}
     </div>
