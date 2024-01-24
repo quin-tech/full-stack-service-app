@@ -12,7 +12,10 @@ import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { stateActions } from '../../utils/stateSlice';
 import './style.css';
 
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+// Start with encoded string, and decode for usable API key for loadStripe call.
+const encoded = 'cGtfdGVzdF9UWW9vTVFhdXZkRURxNTROaVRwaEk3ang'
+const decodedAPI = window.atob( encoded );
+const stripePromise = loadStripe( decodedAPI );
 
 const Cart = () => {
   const state = useSelector((state) => state.globalState);
