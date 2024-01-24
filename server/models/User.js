@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
@@ -30,11 +31,12 @@ const userSchema = new Schema({
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
-  if (this.isNew || this.isModified('password')) {
-    const saltRounds = 10;
+  // Obtain DB connection password from .env
+  const dbPassword = process.env.USER_PASSWORD;
+  if (this.isNew || this.isModified(dbPassword)) {
+      const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
-
   next();
 });
 
