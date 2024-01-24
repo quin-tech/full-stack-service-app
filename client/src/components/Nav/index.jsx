@@ -5,7 +5,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import logo from '../../../public/images/skill-magnet-logo.png';
+import logo from '../../../public/images/logo-3.png';
 import Auth from "../../utils/auth";
 import { useDispatch, useSelector } from 'react-redux';
 import { stateActions } from '../../utils/stateSlice';
@@ -75,7 +75,7 @@ function Nav() {
   if (Auth.loggedIn()) {
   return (
     <Box
-      sx={{display: 'flex', position: 'relative' }}
+      sx={{display: 'flex', position: 'fixed' }}
     >
       <Tabs
         orientation="vertical"
@@ -83,6 +83,12 @@ function Nav() {
         onChange={handleChange}
         aria-label="Vertical tabs example"
         role="navigation"
+        textColor="black"
+        TabIndicatorProps={{
+          style: {
+            backgroundColor: "#E65728"
+          }
+        }}
       >
         <Box sx={{ width: '100px', display: 'flex' }}><img src={logo} /></Box>
         <LinkTab component={Link} label="Home" {...a11yProps(1)} to="/"/>
@@ -109,7 +115,7 @@ function Nav() {
 } else {
   return (
     <Box
-      sx={{display: 'flex', position: 'relative' }}
+      sx={{display: 'flex', position: 'fixed' }}
     >
       <Tabs
         orientation="vertical"
@@ -117,6 +123,12 @@ function Nav() {
         onChange={handleChange}
         aria-label="Vertical tabs example"
         role="navigation"
+        textColor="black"
+        TabIndicatorProps={{
+          style: {
+            backgroundColor: "#E65728",
+          }
+        }}
       >
         <Box sx={{ width: '100px', display: 'flex' }}><img src={logo} /></Box>
         <LinkTab component={Link} label="Home" {...a11yProps(1)} to="/"/>

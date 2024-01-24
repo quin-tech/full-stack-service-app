@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -55,13 +56,15 @@ function ServiceList() {
       <h5>Our Services:</h5>
       {state.services.length ? (
         <Box sx={{ width: '100%' }}>
-          <Stack spacing={2}>
+          <Stack spacing={2} divider={<Divider orientation="horizontal" color="#E65728" flexItem />}>
             {filterServices().map((service) => (
               <Link to={`/services/${service._id}`}>
                 <Item>
-                  <Typography gutterBottom variant="h5" component="div">
-                  {service.name}
-                  {service.price}
+                  <Typography sx={{textAlign: 'left'}}>
+                  {service.name},
+                  ${service.price}
+                  <html></html>
+                  {service.description}
                 </Typography>
                 </Item>
               </Link>
