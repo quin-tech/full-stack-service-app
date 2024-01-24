@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function Profile() {
   const { data } = useQuery(QUERY_USER);
@@ -14,6 +15,21 @@ function Profile() {
     user = data.user;
   }
 
+  const styles = {
+    accordion: {
+      width: '60%',
+      margin: 20,
+      fontWeight: 'bold'
+    },
+    details: {
+      fontWeight: 'normal',
+      padding: 1,
+    },
+    spacer: {
+      marginTop: '40px'
+    }
+  }
+
   return (
     <>
       <div className="container my-1">
@@ -21,48 +37,70 @@ function Profile() {
 
         {user ? (
           <>
-            <h2>
-              Profile
-            </h2>
-            <p>Name: {user.firstName} {user.lastName}</p>
-            <p>Email: {user.email}</p>
-            <Button variant="contained" color="success">
-              Add a Service
-            </Button>
-            <p>Current Listings:</p>
+
+            <h4>{user.firstName} {user.lastName}'s Profile</h4>
             <div>
-              <Accordion>
+              <p
+                style={styles.spacer}>
+                Post a service listing to make cash from your skills!</p>
+            </div>
+            <Button variant="contained" color="success">
+              Add a Service Listing
+            </Button>
+            <h5>Current Listings:</h5>
+            <div>
+              <Accordion
+                style={styles.accordion}>
                 <AccordionSummary
-                  // expandIcon={<ExpandMoreIcon />}
+                  expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1-content"
                   id="panel1-header"
                 >
                   Listing 1 Name
                 </AccordionSummary>
-                <AccordionDetails>
-                  Listing details such as id, price, category, etc. Link to listing page?
+                <AccordionDetails
+                  style={styles.details}>
+                  Listing details
+                </AccordionDetails>
+                <AccordionDetails
+                  style={styles.details}>
+                  $ Price
+                </AccordionDetails>
+                <AccordionDetails
+                  style={styles.details}>
+                  Category. Link to listing page?
                 </AccordionDetails>
               </Accordion>
-            </div>  
+            </div>
 
-            <p>Purchase History:</p>
+            <h5>Purchase History:</h5>
             <div>
-              <Accordion>
+              <Accordion
+                style={styles.accordion}>
                 <AccordionSummary
-                  // expandIcon={<ExpandMoreIcon />}
+                  expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1-content"
                   id="panel1-header"
                 >
                   Order 1 Name
                 </AccordionSummary>
-                <AccordionDetails>
-                  Order details such as id, price, category, etc.
+                <AccordionDetails
+                  style={styles.details}>
+                  Order details
+                </AccordionDetails>
+                <AccordionDetails
+                  style={styles.details}>
+                  $ Price
+                </AccordionDetails>
+                <AccordionDetails
+                  style={styles.details}>
+                  Category
                 </AccordionDetails>
               </Accordion>
             </div>
 
 
-            {user.orders.map((order) => (
+            {/* {user.orders.map((order) => (
               <div key={order._id} className="my-2">
                 <h3>
                   {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
@@ -82,7 +120,7 @@ function Profile() {
                   ))}
                 </div>
               </div>
-            ))}
+            ))} */}
           </>
         ) : null}
       </div>
