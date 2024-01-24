@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { stateActions } from '../../utils/stateSlice';
 import './style.css';
 
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripePromise = loadStripe('pk_test_51ObbQVGqsdJoFmAP33BNJUp93VA0ztyOnWSRuFQiEP6CXUjbWlY7JtfnK7HHZuWqp8ipPKIKl4ycqMRQr6EOPTXG00F6ZCoW9g');
 
 const Cart = () => {
   const state = useSelector((state) => state.globalState);
