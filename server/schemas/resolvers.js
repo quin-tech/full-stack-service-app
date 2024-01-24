@@ -2,8 +2,7 @@ const { User, Service, Category, Order } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 require('dotenv').config();
 
-// Obtain Stripe secret key from .env
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
