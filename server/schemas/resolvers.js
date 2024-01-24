@@ -3,7 +3,7 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 require('dotenv').config();
 
 // Obtain Stripe secret key from .env
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); 
 
 const resolvers = {
   Query: {
