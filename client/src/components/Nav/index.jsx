@@ -73,7 +73,7 @@ function Nav() {
       >
         <Box sx={{ width: '100px', display: 'flex' }}><img src={logo} /></Box>
         <LinkTab component={Link} label="Home" {...a11yProps(1)} to="/"/>
-        <LinkTab component={Link} label="Profile" {...a11yProps(2)} to="/orderHistory"/>
+        <LinkTab component={Link} label="Profile" {...a11yProps(2)} to="/profile"/>
         <LinkTab component={Link} label="Sign In" {...a11yProps(3)} to="/login"/>
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
