@@ -32,8 +32,7 @@ const userSchema = new Schema({
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
   // Obtain DB connection password from .env
-  const dbPassword = process.env.USER_PASSWORD;
-  if (this.isNew || this.isModified(dbPassword)) {
+  if (this.isNew || this.isModified(process.env.USER_PASSWORD)) {
       const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
