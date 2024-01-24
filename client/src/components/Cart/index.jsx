@@ -5,17 +5,11 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
-import { useDispatch, useSelector } from 'react-redux'
-
-import { useStoreContext } from '../../utils/GlobalState';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import { useDispatch, useSelector } from 'react-redux';
 import { stateActions } from '../../utils/stateSlice';
 import './style.css';
 
-// Start with encoded string, and decode for usable API key for loadStripe call.
-const encoded = 'cGtfdGVzdF9UWW9vTVFhdXZkRURxNTROaVRwaEk3ang'
-const decodedAPI = window.atob( encoded );
-const stripePromise = loadStripe( decodedAPI );
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const state = useSelector((state) => state.globalState);

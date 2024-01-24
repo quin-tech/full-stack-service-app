@@ -7,6 +7,9 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import logo from '../../../public/images/skill-magnet-logo.png';
 import Auth from "../../utils/auth";
+import { useDispatch, useSelector } from 'react-redux';
+import { stateActions } from '../../utils/stateSlice';
+import { idbPromise } from '../../utils/helpers';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -52,6 +55,14 @@ function LinkTab(props) {
 }
 
 function Nav() {
+  const state = useSelector((state) => state.globalState);
+  const dispatch = useDispatch();
+
+  function logout() {
+    dispatch(stateActions.clearCart(state));
+    idbPromise('cart', 'clear');
+    Auth.logout();
+  }
 
   const [value, setValue] = React.useState(1);
 
@@ -76,7 +87,7 @@ function Nav() {
         <Box sx={{ width: '100px', display: 'flex' }}><img src={logo} /></Box>
         <LinkTab component={Link} label="Home" {...a11yProps(1)} to="/"/>
         <LinkTab component={Link} label="Profile" {...a11yProps(2)} to="/orderHistory"/>
-        <LinkTab component={Link} label="Sign Out" {...a11yProps(3)} to="/" onClick={() => Auth.logout()}/>
+        <LinkTab component={Link} label="Sign Out" {...a11yProps(3)} to="/" onClick={logout}/>
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
 
