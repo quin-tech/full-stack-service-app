@@ -23,7 +23,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ paddingLeft: '35%', paddingTop: '25px' }}>
+        <Box sx={{ paddingLeft: '35%', paddingTop: '35%' }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -91,10 +91,10 @@ function Nav() {
           }
         }}
       >
-        <Box sx={{ width: '100px', display: 'flex' }}><img src={logo} /></Box>
+        <Box sx={{ width: '100px', display: 'flex'}}><img src={logo} /></Box>
         <LinkTab component={Link} label="Home" {...a11yProps(1)} to="/"/>
         <LinkTab component={Link} label="Profile" {...a11yProps(2)} to="/profile"/>
-        <LinkTab component={Link} label="Sign Out" {...a11yProps(3)} to="/" onClick={logout}/>
+        <LinkTab component={Link} label="Log Out" {...a11yProps(3)} to="/" onClick={logout}/>
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
 
@@ -105,7 +105,7 @@ function Nav() {
         <h4>Profile</h4>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <h4>Sign Out</h4>
+        <h4>Log Out</h4>
       </TabPanel>
       <TabPanel value={value} index={4}>
         <h4>Sign Up</h4>
@@ -131,10 +131,10 @@ function Nav() {
           }
         }}
       >
-        <Box sx={{ width: '100px', display: 'flex' }}><img src={logo} /></Box>
+        <Box sx={{ width: '100px', display: 'flex', paddingBottom: '10%' }}><img src={logo} /></Box>
         <LinkTab component={Link} label="Home" {...a11yProps(1)} to="/"/>
         <LinkTab component={Link} label="Profile" {...a11yProps(2)} to="/profile"/>
-        <LinkTab component={Link} label="Sign In" {...a11yProps(3)} to="/login"/>
+        <LinkTab component={Link} label="Log In" {...a11yProps(3)} to="/login"/>
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
 
@@ -145,10 +145,10 @@ function Nav() {
         <h4>Profile</h4>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <h4>Sign In</h4>
+        <h4 numberOfLines={1}>Log In</h4>
       </TabPanel>
       <TabPanel value={value} index={4}>
-        <h4>Sign Up</h4>
+        <h4 numberOfLines={1}>Sign Up</h4>
       </TabPanel>      
     </Box>
   );
