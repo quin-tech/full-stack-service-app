@@ -70,7 +70,7 @@ p {
 }
 
 a {
-  color: var(--tertiary);
+  color: #E65728;
   text-decoration: none;
   font-weight: bold;
 }
@@ -138,8 +138,8 @@ input:focus {
   position: relative;
   width: 85%;
   margin-left: 125px;
-  margin-right: auto;
-  top: -12.2em;
+  padding-right: 50px;
+  top: 7em;
 }
 
 .flex-row {
