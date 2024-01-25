@@ -9,6 +9,7 @@ export const QUERY_SERVICES = gql`
       image
       availability
       contact
+      email
       price
       category {
         _id
@@ -34,6 +35,7 @@ export const QUERY_ALL_SERVICES = gql`
       image
       availability
       contact
+      email
       price
       category {
         name
@@ -66,6 +68,7 @@ export const QUERY_USER = gql`
           image
           availability
           contact
+          email
           price
         }
       }

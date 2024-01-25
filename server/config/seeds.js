@@ -30,6 +30,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       price: 100.00,
       contact: 'Jane Johnson',
+      email: 'Jane@email.com',
       availability: '2024-02-10T08:00Z'
     },
     {
@@ -40,6 +41,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       price: 175.00,
       contact: 'Tim Thomas',
+      email: 'Tim@email.com',
       availability: '2024-02-12T10:30Z'
     },
     {
@@ -50,6 +52,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       price: 300.00,
       contact: 'Greta Gershwin',
+      email: 'Greta@email.com',
       availability: '2024-02-14T07:00Z'
     },
     {
@@ -60,6 +63,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       price: 400.00,
       contact: 'Fred Fauntleroy',
+      email: 'Fred@email.com',
       availability: '2024-02-16T12:00Z'
     },
     {
@@ -70,6 +74,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       price: 150.00,
       contact: 'Eva Edwards',
+      email: 'Eva@email.com',
       availability: '2024-02-18T14:30Z'
 
     },
@@ -81,6 +86,7 @@ db.once('open', async () => {
       category: categories[3]._id,
       price: 3000.00,
       contact: 'Mark McCormick',
+      email: 'Mark@email.com',
       availability: '2024-02-20T10:00Z'
     },
     {
@@ -91,6 +97,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       price: 400.00,
       contact: 'Wendy Washington',
+      email: 'Wendy@email.com',
       availability: '2024-02-22T17:00Z'
     },
     {
@@ -101,6 +108,7 @@ db.once('open', async () => {
       category: categories[5]._id,
       price: 75.00,
       contact: 'Bert Brown',
+      email: 'Bert@email.com',
       availability: '2024-02-24T14:00Z'
     },
     {
@@ -111,6 +119,7 @@ db.once('open', async () => {
       category: categories[6]._id,
       price: 40.00,
       contact: 'Polly Peterson',
+      email: 'Polly@email.com',
       availability: '2024-02-26T16:30Z'
     },
     {
@@ -121,6 +130,7 @@ db.once('open', async () => {
       category: categories[6]._id,
       price: 200.00,
       contact: 'Alan Anderson',
+      email: 'Alan@email.com',
       availability: '2024-02-28T18:00Z'
     },
     {
@@ -131,6 +141,7 @@ db.once('open', async () => {
       category: categories[7]._id,
       price: 50.00,
       contact: 'Judith Jenkins',
+      email: 'Judith@email.com',
       availability: '2024-03-03T09:00Z'
     },
     {
@@ -141,6 +152,7 @@ db.once('open', async () => {
       category: categories[8]._id,
       price: 70.00,
       contact: 'Sally Smith',
+      email: 'Sally@email.com',
       availability: '2024-03-05T11:30Z'
     },
   ]);

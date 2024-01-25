@@ -22,7 +22,8 @@ function ServiceItem(item) {
     _id,
     price,
     availability,
-    contact
+    contact,
+    email
   } = item;
 
   const { cart } = state
