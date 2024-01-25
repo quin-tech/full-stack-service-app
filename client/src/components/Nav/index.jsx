@@ -83,7 +83,6 @@ function Nav() {
         onChange={handleChange}
         aria-label="Vertical tabs example"
         role="navigation"
-        // textColor="inherit"
         TabIndicatorProps={{
           style: {
             backgroundColor: "#E65728",

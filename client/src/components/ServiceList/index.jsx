@@ -63,7 +63,8 @@ function ServiceList() {
                   <Typography sx={{textAlign: 'left'}}>
                   {service.name},
                   ${service.price}
-                  <html></html>
+                </Typography>
+                <Typography sx={{textAlign: 'left'}}>
                   {service.description}
                 </Typography>
                 </Item>
