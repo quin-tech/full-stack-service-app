@@ -98,7 +98,7 @@ function Nav() {
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
 
-      <TabPanel value={value} index={1}>
+      {/* <TabPanel value={value} index={1}>
         <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
           <h4>Home</h4>
         </Box>
@@ -116,7 +116,7 @@ function Nav() {
         <Box sx={{width: '120px', paddingLeft: '25%', paddingTop: '25%'}}>
             <h4>Sign Up</h4>
         </Box>
-      </TabPanel>      
+      </TabPanel>       */}
     </Box>
   );
 
@@ -145,7 +145,7 @@ function Nav() {
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
 
-      <TabPanel value={value} index={1}>
+      {/* <TabPanel value={value} index={1}>
         <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
           <h4>Home</h4>
         </Box>
@@ -163,7 +163,7 @@ function Nav() {
         <Box sx={{width: '120px', paddingLeft: '20%', paddingTop: '25%'}}>
           <h4>Sign Up</h4>
         </Box>
-      </TabPanel>      
+      </TabPanel>       */}
     </Box>
   );
 }}
