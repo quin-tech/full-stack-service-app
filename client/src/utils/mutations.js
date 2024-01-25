@@ -22,6 +22,7 @@ export const ADD_ORDER = gql`
         image
         availability
         contact
+        email
         price
         category {
           name
