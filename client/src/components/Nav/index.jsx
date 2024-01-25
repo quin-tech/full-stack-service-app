@@ -23,7 +23,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ paddingLeft: '35%', paddingTop: '35%' }}>
+        <Box>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -99,16 +99,23 @@ function Nav() {
       </Tabs>
 
       <TabPanel value={value} index={1}>
-        <h4>Home</h4>
+        <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
+          <h4>Home</h4>
+        </Box>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <h4>Profile</h4>
+        <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
+          <h4>Profile</h4>
+        </Box>      </TabPanel>
+      <TabPanel value={value} index={3} sx={{ width: '110px'}}>
+        <Box sx={{width: '120px', paddingLeft: '25%', paddingTop: '25%'}}>
+          <h4>Log Out</h4>
+        </Box>
       </TabPanel>
-      <TabPanel value={value} index={3}>
-        <h4>Log Out</h4>
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        <h4>Sign Up</h4>
+      <TabPanel value={value} index={4} sx={{ width: '110px'}}>
+        <Box sx={{width: '120px', paddingLeft: '25%', paddingTop: '25%'}}>
+            <h4>Sign Up</h4>
+        </Box>
       </TabPanel>      
     </Box>
   );
@@ -139,16 +146,23 @@ function Nav() {
       </Tabs>
 
       <TabPanel value={value} index={1}>
-        <h4>Home</h4>
+        <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
+          <h4>Home</h4>
+        </Box>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <h4>Profile</h4>
+        <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
+          <h4>Profile</h4>
+        </Box>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <h4>Log In</h4>
-      </TabPanel>
+        <Box sx={{width: '120px', paddingLeft: '20%', paddingTop: '25%'}}>
+          <h4>Log In</h4>
+        </Box>      </TabPanel>
       <TabPanel value={value} index={4}>
-        <h4>Sign Up</h4>
+        <Box sx={{width: '120px', paddingLeft: '20%', paddingTop: '25%'}}>
+          <h4>Sign Up</h4>
+        </Box>
       </TabPanel>      
     </Box>
   );

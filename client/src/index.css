@@ -135,7 +135,7 @@ input:focus {
 
 .container {
   position: relative;
-  width: 85%;
+  max-width: 90%;
   margin-left: 125px;
   padding-right: 50px;
   top: 7em;
