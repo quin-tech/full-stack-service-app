@@ -24,7 +24,7 @@
   top: .5rem;
   right: .5rem;
   cursor: pointer;
-  color: var(--tertiary);
+  color: #E65728;
 }
 
 .cart .close:hover {
@@ -33,15 +33,15 @@
 
 .cart-closed {
   position: fixed;
-  top: 2%;
-  right: 1%;
+  top: 2.5%;
+  right: 1.5%;
   font-size: 2rem;
   cursor: pointer;
   background-color: var(--secondary);
   border-radius: 50%;
   padding: .25rem;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
 }
 
 .cart-closed:hover {
@@ -61,15 +61,18 @@
 
 @media screen and (max-width: 768px) {
   .cart {
-    position: relative;
+    position: fixed;
     max-width: 100%;
     max-height: auto;
     box-shadow: none;
     background-color: inherit;
+
   }
 
   .cart-closed {
-    position: relative;
+    position: fixed;
     margin: 0 auto;
+    width: 50px;
+    height: 50px;
   }
 }

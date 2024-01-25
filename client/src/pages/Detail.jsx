@@ -1,9 +1,14 @@
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { useDispatch, useSelector } from 'react-redux';
-
-
 import Cart from '../components/Cart';
 import { QUERY_SERVICES } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
@@ -18,9 +23,7 @@ function Detail() {
   const { id } = useParams();
 
   const [currentService, setCurrentService] = useState({});
-
   const { loading, data } = useQuery(QUERY_SERVICES);
-
   const { services, cart } = state;
 
   useEffect(() => {
@@ -72,25 +75,43 @@ function Detail() {
         <div className="container my-1">
           <Link to="/">← Back to Services</Link>
 
-          <h2>{currentService.name}</h2>
+          <Card sx={{ width: 345 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image={`/images/${currentService.image}`}
+              title={currentService.name}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {currentService.name}
+              </Typography>
+              <Typography gutterBottom>
+                {currentService.contact}
+              </Typography>
+              <Typography gutterBottom>
+                Price: ${currentService.price}
+              </Typography>
+              <Typography gutterBottom>
+                Available: {currentService.availability}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                size='small' 
+                onClick={addToCart}
+              >
+                Add to cart
+              </Button>
+              <Button
+                size='small'
+                disabled={!cart.find((p) => p._id === currentService._id)}
+                onClick={removeFromCart}
+              >
+                Remove from Cart
+              </Button>
+            </CardActions>
+          </Card>
 
-          <p>{currentService.description}</p>
-
-          <p>
-            <strong>Price:</strong>${currentService.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentService._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
-          </p>
-
-          <img
-            src={`/images/${currentService.image}`}
-            alt={currentService.name}
-          />
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
