@@ -12,6 +12,7 @@ const typeDefs = `
     price: Float
     availability: String
     contact: String
+    email: String
     category: Category
   }
 

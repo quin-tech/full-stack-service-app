@@ -92,6 +92,9 @@ function Detail() {
                 Price: ${currentService.price}
               </Typography>
               <Typography gutterBottom>
+                Contact: {currentService.email}
+              </Typography>
+              <Typography gutterBottom>
                 Available: {currentService.availability}
               </Typography>
             </CardContent>

@@ -25,6 +25,9 @@ const serviceSchema = new Schema({
   contact: {
     type: String
   },
+  email: {
+    type: String
+  },
   category: {
     type: Schema.Types.ObjectId,
     ref: 'Category',
