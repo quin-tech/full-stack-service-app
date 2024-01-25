@@ -145,10 +145,10 @@ function Nav() {
         <h4>Profile</h4>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <h4 numberOfLines={1}>Log In</h4>
+        <h4>Log In</h4>
       </TabPanel>
       <TabPanel value={value} index={4}>
-        <h4 numberOfLines={1}>Sign Up</h4>
+        <h4>Sign Up</h4>
       </TabPanel>      
     </Box>
   );
