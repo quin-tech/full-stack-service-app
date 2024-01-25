@@ -75,7 +75,7 @@ function Detail() {
         <div className="container my-1">
           <Link to="/">← Back to Services</Link>
 
-          <Card sx={{ width: '100%' }}>
+          <Card sx={{ width: 345 }}>
             <CardMedia
               sx={{ height: 140 }}
               image={`/images/${currentService.image}`}
