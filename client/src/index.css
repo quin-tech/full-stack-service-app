@@ -119,6 +119,13 @@ form {
   width: 300px;
 }
 
+@media screen and (max-width: 462px) {
+  form {
+    width: 200px;
+  }
+}
+
+
 input {
   font-size: 1rem;
   padding: 0.25rem;
