@@ -58,7 +58,7 @@ function ServiceList() {
         <Box sx={{ width: '100%', display: "flex", justifyContent: "center"}}>
           <Stack spacing={2} divider={<Divider orientation="horizontal" color="#E65728" flexItem />}>
             {filterServices().map((service) => (
-              <Link to={`/services/${service._id}`}>
+              <Link key={service._id} to={`/services/${service._id}`}>
                 <Item>
                   <Typography sx={{textAlign: 'left'}}>
                   {service.name},
