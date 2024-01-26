@@ -112,8 +112,8 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    addService: async (parent, { name, description, image, price, availability, contact, email, category, user }) => {
-      // if (context.user) {
+    addService: async (parent, { name, description, image, price, availability, contact, email, category, user }, context) => {
+      if (context.user) {
         console.log(user);
         const service = await Service.create({ name, description, image, price, availability, contact, email, category, user });
         console.log(service);
@@ -123,9 +123,9 @@ const resolvers = {
         );
 
         return service;
-      // }
+      }
 
-      // throw AuthenticationError;
+      throw AuthenticationError;
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {
