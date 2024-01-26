@@ -26,7 +26,7 @@ db.once('open', async () => {
       name: 'Speedy Delivery',
       description:
         'We deliver anything that can fit in the van and is legal',
-      image: 'home-store-front-door.jpg',
+      image: 'speedy-delivery.jpg',
       category: categories[0]._id,
       price: 100.00,
       contact: 'Jane Johnson',
@@ -37,7 +37,7 @@ db.once('open', async () => {
       name: 'Antique Movers',
       description:
         'Expert packing / fully bonded and insured / careful as if it was our own',
-      image: 'home-store-front-door.jpg',
+      image: 'antique-movers.jpg',
       category: categories[0]._id,
       price: 175.00,
       contact: 'Tim Thomas',
@@ -48,7 +48,7 @@ db.once('open', async () => {
       name: 'The Fixers',
       description:
         'Small repairs in the home: appliances, walls, non-union plumbing and electrical, clean gutters, painting',
-      image: 'home-store-front-door.jpg',
+      image: 'the-fixers.jpg',
       category: categories[1]._id,
       price: 300.00,
       contact: 'Greta Gershwin',
@@ -59,7 +59,7 @@ db.once('open', async () => {
       name: 'Floor Renewal',
       description:
         'Specialize in wood floor renovation, carpet replacement and carpet cleaning.',
-      image: 'home-store-front-door.jpg',
+      image: 'floor-renewal.jpg',
       category: categories[1]._id,
       price: 400.00,
       contact: 'Fred Fauntleroy',
@@ -70,7 +70,7 @@ db.once('open', async () => {
       name: 'See It Sparkle',
       description:
         'Full house cleaning and custom house cleaning available.',
-      image: 'home-store-front-door.jpg',
+      image: 'see-it-sparkle.jpg',
       category: categories[2]._id,
       price: 150.00,
       contact: 'Eva Edwards',
@@ -82,7 +82,7 @@ db.once('open', async () => {
       name: 'McCormick Movers',
       description:
         'Small jobs / Big jobs / Local home moves',
-      image: 'home-store-front-door.jpg',
+      image: 'mccormick-movers.jpg',
       category: categories[3]._id,
       price: 3000.00,
       contact: 'Mark McCormick',
@@ -93,7 +93,7 @@ db.once('open', async () => {
       name: 'Green Thumb Landscaping',
       description:
         'Weekly maintance / home outdoor projects / tree trimming and removal.',
-      image: 'home-store-front-door.jpg',
+      image: 'green-thumb-landscaping.jpg',
       category: categories[4]._id,
       price: 400.00,
       contact: 'Wendy Washington',
@@ -104,7 +104,7 @@ db.once('open', async () => {
       name: 'Assembly Experts',
       description:
         'My buddies say Diversify - would yeh?  I say, No way man - I live for putting things together!',
-      image: 'home-store-front-door.jpg',
+      image: 'assembly-experts.jpg',
       category: categories[5]._id,
       price: 75.00,
       contact: 'Bert Brown',
@@ -115,7 +115,7 @@ db.once('open', async () => {
       name: 'Healthy Food Express',
       description:
         'Phone orders / Online orders / Pickup what you order.',
-      image: 'home-store-front-door.jpg',
+      image: 'healthy-food-express.jpg',
       category: categories[6]._id,
       price: 40.00,
       contact: 'Polly Peterson',
@@ -126,7 +126,7 @@ db.once('open', async () => {
       name: 'Bouquet Delivery',
       description:
         'In-store stock of beautiful bouquets and some live plants, or Order online or by phone. Visit our website / Same day delivery',
-      image: 'home-store-front-door.jpg',
+      image: 'bouquet-delivery.jpg',
       category: categories[6]._id,
       price: 200.00,
       contact: 'Alan Anderson',
@@ -137,7 +137,7 @@ db.once('open', async () => {
       name: 'Happy Hound Dog Walking',
       description:
         '15 years experience in the business / Trained and background-checked walkers / Any size dogs.',
-      image: 'home-store-front-door.jpg',
+      image: 'happy-hound-dog-walking.jpg',
       category: categories[7]._id,
       price: 50.00,
       contact: 'Judith Jenkins',
@@ -148,7 +148,7 @@ db.once('open', async () => {
       name: 'Home-Pet-Care.com',
       description:
         'Contact us online / 5 years experience with dogs, cats, and 10 other types of pets / fully insured.',
-      image: 'home-store-front-door.jpg',
+      image: 'home-pet-care-com.jpg',
       category: categories[8]._id,
       price: 70.00,
       contact: 'Sally Smith',
