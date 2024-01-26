@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+# Ignore .env in this server folder for deployment
+.env
 
 # Editor directories and files
 .vscode/*
