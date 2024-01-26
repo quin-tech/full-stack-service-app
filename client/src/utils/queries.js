@@ -14,6 +14,9 @@ export const QUERY_SERVICES = gql`
       category {
         _id
       }
+      user {
+        firstName
+      }
     }
   }
 `;
@@ -39,6 +42,9 @@ export const QUERY_ALL_SERVICES = gql`
       price
       category {
         name
+      }
+      user {
+        firstName
       }
     }
   }
