@@ -87,7 +87,6 @@ function Nav() {
           style: {
             backgroundColor: "#E65728",
             textColor: "inherit"
-
           }
         }}
       >
