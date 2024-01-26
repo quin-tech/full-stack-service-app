@@ -10,6 +10,9 @@ const resolvers = {
     categories: async () => {
       return await Category.find();
     },
+    users: async () => {
+      return await User.find();
+    },
     services: async (parent, { category, name }) => {
       const params = {};
 
@@ -109,20 +112,20 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    addService: async (parent, { name, description, image, price, availability, contact, email, category, user }, context) => {
-      if (context.user) {
+    addService: async (parent, { name, description, image, price, availability, contact, email, category, user }) => {
+      // if (context.user) {
+        console.log(user);
         const service = await Service.create({ name, description, image, price, availability, contact, email, category, user });
-
+        console.log(service);
         await User.findByIdAndUpdate(
-          { user: user._id },
-          { $addToSet: { services: service._id } }
+          { _id: user },
+          { $push: { services: service._id } }
         );
-        await Service.findByIdAndUpdate( { $push: { services: service } });
 
         return service;
-      }
+      // }
 
-      throw AuthenticationError;
+      // throw AuthenticationError;
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {

@@ -31,6 +31,7 @@ const typeDefs = `
     lastName: String
     email: String
     orders: [Order]
+    services: [Service]
   }
 
   type Checkout {
@@ -46,6 +47,7 @@ const typeDefs = `
     categories: [Category]
     services(category: ID, name: String): [Service]
     service(_id: ID!): Service
+    users: [User]
     user: User
     order(_id: ID!): Order
     checkout(services: [ID]!): Checkout
