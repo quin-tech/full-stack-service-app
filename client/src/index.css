@@ -146,6 +146,7 @@ input:focus {
   margin-left: 125px;
   padding-right: 50px;
   top: 6.3em;
+  padding-bottom: 20px;
 }
 
 .flex-row {
