@@ -33,6 +33,9 @@ function Detail() {
     },
     buttonA: {
       color: '#E65728'
+    },
+    cardResponse: {
+      left: '-20px'
     }
   }
 
@@ -82,7 +85,7 @@ function Detail() {
   return (
     <>
       {currentService && cart ? (
-        <div className="container my-1">
+        <div className="containerCard my-1">
           <Link to="/">← Back to Services</Link>
 
           <Card sx={{ width: 345 }}>
@@ -120,7 +123,6 @@ function Detail() {
                 size='small'
                 disabled={!cart.find((p) => p._id === currentService._id)}
                 onClick={removeFromCart}
-                styles={styles.buttonA}
               >
                 Remove from Cart
               </Button>
