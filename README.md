@@ -1,53 +1,43 @@
-# GraphQL Book Search Engine
+# Skill Magnet: Full Stack Service app
 
-![License: MIT ](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Logo](./client/public/images/logo-3.png)
 
 ## Description
 
-I took a fully functioning Google Books API search engine built with a RESTful API, and refactor it to be a GraphQL API built with Apollo Server as part of a bootcamp coding course.
- 
-I learn:  
-    - how to create a single-page application (SPA) using React.     
-    - how to use React components, manage application state, and pass data throughout your app.     
-    - how to use React Router to add dynamic client-side routing to apps.  
-    - how to Create an Apollo Provider so that requests can communicate with an Apollo Server..    
-    - how deploy to Render.    
-    - how to use Vite.
+SkillMagnet is a job board to sell and hire services that one might need asistance or particular skills to complete. It is a web application designed to make it easier to find, contact, and pay for jobs such as babysitting, handyman work, etc. SkillMagnet is free to use and doesn't take a profit off of sold services, making it easier for members of the community to market themselves and support each other's businesses. 
+
+In this project, every member of Quin-tech better learned how to implement MERN, React, GraphQl, Redux, and React frameworks.
 
 ## Installation
 
-Repository URL: https://github.com/solangeindaco/graphql-book-search-eng   
-Deployed application: https://graphql-book-search-eng.onrender.com/   
+Repository URL: https://github.com/quin-tech/full-stack-service-app   
+Deployed application: https://full-stack-service-app.onrender.com/ 
 
 ## Usage
 
-Let's start by revisiting the web application's appearance and functionality.
-
-As you can see in the following animation, a user can type a search term (in this case, "star wars") in a search box and the results appear:
-
-![Animation shows "star wars" typed into a search box and books about Star Wars appearing as results.](./assets/21-mern-homework-demo-01.gif)
-
-The user can save books by clicking "Save This Book!" under each search result, as shown in the following animation:
-
-![Animation shows user clicking "Save This Book!" button to save books that appear in search results. The button label changes to "Book Already Saved" after it is clicked and the book is saved.](./assets/21-mern-homework-demo-02.gif)
-
-A user can view their saved books on a separate page, as shown in the following animation:
-
-![The Viewing Lernantino's Books page shows the books that the user Lernaninto has saved.](./assets/21-mern-homework-demo-03.gif)
-
+This web application is ready-to-use. Just open the deployed application link provided above, and begin interacting with the website. Use the Navbar on the left to direct to different pages. If someone is interested in buying a service, just click on that serice then "Add to Cart". To interact with items in your cart, hit the cart icon in the top right corner.
 
 ## Credits
 
-To refactor this web application, I used the following tutorials and libraries:    
-    - React: https://react.dev/learn     
-    - Vite: https://vitejs.dev/     
-    - Apollo: https://www.apollographql.com/docs/graphos/explorer/                  
-    - GraphQL: https://graphql.org/learn/queries/                   
-    - Authentication: https://www.apollographql.com/docs/react/networking/authentication/       
-    - Render: https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-render-and-mongodb-atlas         
+This web application was developed in collaboration with Madison Eckstrom, Tabbatha Pischke, Tony Magrady, Jack Weng and Solange Indaco.
+
+To refactor this web application, we used the following tutorials and libraries:    
+        - Redux: https://www.npmjs.com/package/redux  
+        - Readt-redux: https://www.npmjs.com/package/react-redux   
+        - Redux: https://redux.js.org/     
+        - React: https://react.dev/learn  
+        - Context: https://legacy.reactjs.org/docs/context.html      
+        - Vite: https://vitejs.dev/     
+        - Apollo: https://www.apollographql.com/docs/graphos/explorer/                  
+        - GraphQL: https://graphql.org/learn/queries/                   
+        - Authentication: https://www.apollographql.com/docs/react/networking/authentication/       
+        - Render: https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-render-and-mongodb-atlas 
+        - Logo: https://app.logo.com/
+        - MUI: https://mui.com/material-ui/ 
                                                                            
 
 ## License
 
 Licensed under the [MIT](LICENSE) license.
+![License: MIT ](https://img.shields.io/badge/License-MIT-yellow.svg)
 
