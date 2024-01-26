@@ -109,6 +109,21 @@ const resolvers = {
 
       throw AuthenticationError;
     },
+    addService: async (parent, { name, description, image, price, availability, contact, email, category, user }, context) => {
+      if (context.user) {
+        const service = await Service.create({ name, description, image, price, availability, contact, email, category, user });
+
+        await User.findByIdAndUpdate(
+          { user: user._id },
+          { $addToSet: { services: service._id } }
+        );
+        await Service.findByIdAndUpdate( { $push: { services: service } });
+
+        return service;
+      }
+
+      throw AuthenticationError;
+    },
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });

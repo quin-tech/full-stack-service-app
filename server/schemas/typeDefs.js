@@ -9,11 +9,12 @@ const typeDefs = `
     name: String
     description: String
     image: String
-    price: Float
+    price: String
     availability: String
     contact: String
     email: String
-    category: Category
+    category: String
+    user: String
   }
 
   type Order {
@@ -21,6 +22,8 @@ const typeDefs = `
     purchaseDate: String
     services: [Service]
   }
+
+
 
   type User {
     _id: ID
@@ -51,6 +54,7 @@ const typeDefs = `
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     addOrder(services: [ID]!): Order
+    addService(name: String!, description: String!, image: String, price: String, availability: String, contact: String, email: String, category: String, user: String ): Service
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateService(_id: ID!, price: Int!): Service
     login(email: String!, password: String!): Auth
