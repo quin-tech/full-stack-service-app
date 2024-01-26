@@ -10,6 +10,7 @@ import Auth from "../../utils/auth";
 import { useDispatch, useSelector } from 'react-redux';
 import { stateActions } from '../../utils/stateSlice';
 import { idbPromise } from '../../utils/helpers';
+import HomeIcon from '@mui/icons-material/Home';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -145,8 +146,9 @@ function Nav() {
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
 
-      {/* <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={1}>
         <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
+          {/* {HomeIcon} */}
           <h4>Home</h4>
         </Box>
       </TabPanel>
@@ -163,7 +165,7 @@ function Nav() {
         <Box sx={{width: '120px', paddingLeft: '20%', paddingTop: '25%'}}>
           <h4>Sign Up</h4>
         </Box>
-      </TabPanel>       */}
+      </TabPanel>      
     </Box>
   );
 }}
