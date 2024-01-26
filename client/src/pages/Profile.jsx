@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { useState } from 'react';
 import { QUERY_USER } from '../utils/queries';
-import Button from '@mui/material/Button';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import ProfileForm from '../components/ProfileForm';
 
 function Profile() {
 
@@ -34,9 +31,9 @@ function Profile() {
     }
   }
 
-  const handleClick = () => {
-    alert("Clicky");
-  };
+  // const handleClick = () => {
+  //   alert("Clicky");
+  // };
 
   return (
     <>
@@ -46,61 +43,7 @@ function Profile() {
         {user ? (
           <>
             <h4>{user.firstName} {user.lastName}'s Profile</h4>
-            <div>
-              <p
-                style={styles.spacer}>
-                Post a service listing to make cash from your skills!</p>
-            </div>
-            <Box
-              component="form"
-              sx={{
-                '& .MuiTextField-root': { m: 1, width: '50ch' },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <div>
-                <TextField
-                  id="nameInput"
-                  required
-                  label="What is your Service?"
-                />
-                <TextField
-                  id="descInput"
-                  required
-                  label="Details/Description"
-                />
-                <TextField
-                  id="nameInput"
-                  required
-                  label="Name your Price"
-                />
-                 <TextField
-                  id="nameInput"
-                  required
-                  label="Availability (Days/Times)"
-                />
-                <TextField
-                  id="nameInput"
-                  required
-                  label="Contact"
-                />
-                <TextField
-                  id="nameInput"
-                  required
-                  label="Email"
-                />
-              </div>
-            </Box>
-            <Button
-              onClick={() => {
-                handleClick('');
-              }}
-              variant="contained"
-              color="success"
-            >
-              Add a Service Listing
-            </Button>
+            <ProfileForm />
             <h5>Current Listings:</h5>
             <div>
               <Accordion
@@ -152,7 +95,6 @@ function Profile() {
                 </AccordionDetails>
               </Accordion>
             </div>
-
 
             {/* {user.orders.map((order) => (
               <div key={order._id} className="my-2">
