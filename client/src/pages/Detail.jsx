@@ -26,6 +26,19 @@ function Detail() {
   const { loading, data } = useQuery(QUERY_SERVICES);
   const { services, cart } = state;
 
+  const styles = {
+    cardButton: {
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    buttonA: {
+      color: '#E65728'
+    },
+    cardResponse: {
+      left: '-20px'
+    }
+  }
+
   useEffect(() => {
     // already in global store
     if (services.length) {
@@ -72,7 +85,7 @@ function Detail() {
   return (
     <>
       {currentService && cart ? (
-        <div className="container my-1">
+        <div className="containerCard my-1">
           <Link to="/">← Back to Services</Link>
 
           <Card sx={{ width: 345 }}>
@@ -92,16 +105,17 @@ function Detail() {
                 Price: ${currentService.price}
               </Typography>
               <Typography gutterBottom>
-                Contact: {currentService.email}
+                Email: {currentService.email}
               </Typography>
               <Typography gutterBottom>
                 Available: {currentService.availability}
               </Typography>
             </CardContent>
-            <CardActions>
+            <CardActions style={styles.cardButton}>
               <Button
                 size='small' 
                 onClick={addToCart}
+                style={styles.buttonA}
               >
                 Add to cart
               </Button>
