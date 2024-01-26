@@ -55,7 +55,7 @@ function ServiceList() {
     <div className="my-2">
       <h5>Our Services:</h5>
       {state.services.length ? (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%', display: "flex", justifyContent: "center"}}>
           <Stack spacing={2} divider={<Divider orientation="horizontal" color="#E65728" flexItem />}>
             {filterServices().map((service) => (
               <Link to={`/services/${service._id}`}>
@@ -63,7 +63,8 @@ function ServiceList() {
                   <Typography sx={{textAlign: 'left'}}>
                   {service.name},
                   ${service.price}
-                  <html></html>
+                </Typography>
+                <Typography sx={{textAlign: 'left'}}>
                   {service.description}
                 </Typography>
                 </Item>

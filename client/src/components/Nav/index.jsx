@@ -23,7 +23,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ paddingLeft: '35%', paddingTop: '25px' }}>
+        <Box>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -83,32 +83,20 @@ function Nav() {
         onChange={handleChange}
         aria-label="Vertical tabs example"
         role="navigation"
-        textColor="black"
         TabIndicatorProps={{
           style: {
-            backgroundColor: "#E65728"
+            backgroundColor: "#E65728",
+            textColor: "inherit"
+
           }
         }}
       >
-        <Box sx={{ width: '100px', display: 'flex' }}><img src={logo} /></Box>
+        <Box sx={{ width: '100px', display: 'flex'}}><img src={logo} /></Box>
         <LinkTab component={Link} label="Home" {...a11yProps(1)} to="/"/>
         <LinkTab component={Link} label="Profile" {...a11yProps(2)} to="/profile"/>
-        <LinkTab component={Link} label="Sign Out" {...a11yProps(3)} to="/" onClick={logout}/>
+        <LinkTab component={Link} label="Log Out" {...a11yProps(3)} to="/" onClick={logout}/>
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
-
-      <TabPanel value={value} index={1}>
-        <h4>Home</h4>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <h4>Profile</h4>
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <h4>Sign Out</h4>
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        <h4>Sign Up</h4>
-      </TabPanel>      
     </Box>
   );
 
@@ -123,32 +111,19 @@ function Nav() {
         onChange={handleChange}
         aria-label="Vertical tabs example"
         role="navigation"
-        textColor="black"
+        textColor="inherit"
         TabIndicatorProps={{
           style: {
             backgroundColor: "#E65728",
           }
         }}
       >
-        <Box sx={{ width: '100px', display: 'flex' }}><img src={logo} /></Box>
+        <Box sx={{ width: '100px', display: 'flex', paddingBottom: '10%' }}><img src={logo} /></Box>
         <LinkTab component={Link} label="Home" {...a11yProps(1)} to="/"/>
         <LinkTab component={Link} label="Profile" {...a11yProps(2)} to="/profile"/>
-        <LinkTab component={Link} label="Sign In" {...a11yProps(3)} to="/login"/>
+        <LinkTab component={Link} label="Log In" {...a11yProps(3)} to="/login"/>
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
-
-      <TabPanel value={value} index={1}>
-        <h4>Home</h4>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <h4>Profile</h4>
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <h4>Sign In</h4>
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        <h4>Sign Up</h4>
-      </TabPanel>      
     </Box>
   );
 }}

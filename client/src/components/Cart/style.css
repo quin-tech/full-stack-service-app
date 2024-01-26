@@ -33,15 +33,15 @@
 
 .cart-closed {
   position: fixed;
-  top: 2.5%;
+  top: 4%;
   right: 1.5%;
   font-size: 2rem;
   cursor: pointer;
   background-color: var(--secondary);
   border-radius: 50%;
   padding: .25rem;
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
 }
 
 .cart-closed:hover {

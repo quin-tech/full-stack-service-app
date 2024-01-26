@@ -91,8 +91,7 @@ button {
   font-size: 1rem;
   text-decoration: none;
   padding: 0.25rem 1rem;
-  border-radius: .5rem;
-  border: none;
+  border: solid #E65728;
   outline: none;
   cursor: pointer;
   margin: 0 1px;
@@ -117,8 +116,15 @@ span[role="img"] {
 }
 
 form {
-  width: 40%;
+  width: 300px;
 }
+
+@media screen and (max-width: 462px) {
+  form {
+    width: 200px;
+  }
+}
+
 
 input {
   font-size: 1rem;
@@ -136,10 +142,10 @@ input:focus {
 
 .container {
   position: relative;
-  width: 85%;
+  max-width: 90%;
   margin-left: 125px;
   padding-right: 50px;
-  top: 7em;
+  top: 6.3em;
 }
 
 .flex-row {
