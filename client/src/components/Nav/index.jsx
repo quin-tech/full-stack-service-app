@@ -10,7 +10,6 @@ import Auth from "../../utils/auth";
 import { useDispatch, useSelector } from 'react-redux';
 import { stateActions } from '../../utils/stateSlice';
 import { idbPromise } from '../../utils/helpers';
-import HomeIcon from '@mui/icons-material/Home';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -98,26 +97,6 @@ function Nav() {
         <LinkTab component={Link} label="Log Out" {...a11yProps(3)} to="/" onClick={logout}/>
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
-
-      {/* <TabPanel value={value} index={1}>
-        <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
-          <h4>Home</h4>
-        </Box>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
-          <h4>Profile</h4>
-        </Box>      </TabPanel>
-      <TabPanel value={value} index={3} sx={{ width: '110px'}}>
-        <Box sx={{width: '120px', paddingLeft: '25%', paddingTop: '25%'}}>
-          <h4>Log Out</h4>
-        </Box>
-      </TabPanel>
-      <TabPanel value={value} index={4} sx={{ width: '110px'}}>
-        <Box sx={{width: '120px', paddingLeft: '25%', paddingTop: '25%'}}>
-            <h4>Sign Up</h4>
-        </Box>
-      </TabPanel>       */}
     </Box>
   );
 
@@ -145,27 +124,6 @@ function Nav() {
         <LinkTab component={Link} label="Log In" {...a11yProps(3)} to="/login"/>
         <LinkTab component={Link} label="Sign Up" {...a11yProps(4)} to="/signup"/>
       </Tabs>
-
-      <TabPanel value={value} index={1}>
-        <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
-          {/* {HomeIcon} */}
-          <h4>Home</h4>
-        </Box>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <Box sx={{paddingLeft: '36%', paddingTop: '40%'}}>
-          <h4>Profile</h4>
-        </Box>
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <Box sx={{width: '120px', paddingLeft: '20%', paddingTop: '25%'}}>
-          <h4>Log In</h4>
-        </Box>      </TabPanel>
-      <TabPanel value={value} index={4}>
-        <Box sx={{width: '120px', paddingLeft: '20%', paddingTop: '25%'}}>
-          <h4>Sign Up</h4>
-        </Box>
-      </TabPanel>      
     </Box>
   );
 }}

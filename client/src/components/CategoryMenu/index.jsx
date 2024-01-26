@@ -56,7 +56,7 @@ function CategoryMenu() {
 
   return (
     <div>
-      <h4>Filter by Category
+      <h5>Filter by Category
         <Button
           style={styles.filterBtn}
           id="basic-button"
@@ -88,7 +88,7 @@ function CategoryMenu() {
           }}>All</MenuItem>
 
         </Menu>
-        </h4>
+        </h5>
     </div>
   );
 }
