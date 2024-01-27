@@ -1,13 +1,29 @@
-import { useMutation } from '@apollo/client';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
 import { ADD_SERVICE } from '../../utils/mutations';
-import { QUERY_USER } from '../../utils/queries';
+import { QUERY_CATEGORIES } from '../../utils/queries';
+import { idbPromise } from '../../utils/helpers';
+import { stateActions } from '../../utils/stateSlice';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const ProfileForm = () => {
+
+    const [category, setCategory] = React.useState('');
+
+    const handleChange = (event) => {
+      setCategory(event.target.value);
+    };
+
+
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -16,18 +32,61 @@ const ProfileForm = () => {
     const [availability, setAvailability] = useState('');
     const [contact, setContact] = useState('');
     const [email, setEmail] = useState('');
-    const [category, setCategory] = useState('');
+    // const [category, setCategory] = useState('');
     const state = useSelector( (state) => state.globalState);
     console.log(state);
 
+    const dispatch = useDispatch();
+  
 
-    const [ addService, {error} ] = useMutation(ADD_SERVICE);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+
+
+    const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES, 
+        );
+    console.log(categoryData);
+    const categories = categoryData?.categories;
+    categories.map((item) => {
+        console.log(item.name)});
+
+
+    const [ addService, {error}, ] = useMutation(ADD_SERVICE);
 
     const styles = {
         spacer: {
             marginTop: '40px'
           }
         }
+
+        // const handleClickItem = (event) => {
+        //    setCategory(event.target.value);
+        //   };
+
+    // useEffect(() => {
+    //     if (categoryData) {
+
+        
+    //         dispatch(stateActions.updateCategories(categoryData.categories));
+    
+    
+    //         categoryData.categories.forEach((category) => {
+    //         idbPromise('categories', 'put', category);
+    //         });
+    //     } else if (!loading) {
+    //         idbPromise('categories', 'get').then((categories) => {
+    //         dispatch(stateActions.updateCategories(categories));
+    //         });
+    //     }
+    //     }, [categoryData, loading, dispatch]);
+
+    // const handleChange = (event) => {
+    //     setCategory(event.target.value);
+    //     };
+
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -105,13 +164,33 @@ return (
         value={email}
         onChange={(event) => setEmail(event.target.value)}
         />
-        <TextField
-        id="categoryInput"
-        required
-        label="Category"
-        value={category}
-        onChange={(event) => setCategory(event.target.value)}
-        />
+        <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Category</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Category"
+          value={category}
+          onChange={handleChange}
+        //   onChange={(event) => setCategory(event.target.value)}
+
+        //   onChange={handleChange(item._id)}
+        >
+        {categories.map((item) => (
+          <MenuItem 
+          key={item._id}
+          value={item._id}
+        // onChange={(event) => setCategory(event.target.value)}
+        //   onClick={() => {
+        //     handleClickItem(item.name);
+        //     console.log(item.name)
+        // }}
+        >{item.name}</MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </Box>
     <Button
     variant="contained"
     color="success"
@@ -122,6 +201,7 @@ return (
 
     </div>
   </Box>
+
 
   </>
   );
