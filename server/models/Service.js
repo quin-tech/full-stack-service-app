@@ -15,7 +15,7 @@ const serviceSchema = new Schema({
     type: String
   },
   price: {
-    type: String,
+    type: Number,
     required: true,
     min: 0.99
   },
