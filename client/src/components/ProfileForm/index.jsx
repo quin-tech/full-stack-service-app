@@ -39,7 +39,9 @@ const ProfileForm = () => {
           }
         }
     
-        
+    function onChangePrice(e) {
+      setPrice(parseInt(e.target.value));
+    }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -83,13 +85,14 @@ return (
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
-      <TextField
+      <input
         id="priceInput"
         required
         label="Name your Price"
         type="number"
         value={price}
-        onChange={(event) => setPrice(event.target.value)}
+        //onChange={(event) => setPrice(event.target.value)}
+        onChange={onChangePrice}
       />
        <TextField
         id="availInput"
