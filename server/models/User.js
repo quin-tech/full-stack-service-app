@@ -4,7 +4,8 @@ require('dotenv').config();
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const Order = require('./Order');
-const Service = require('./Service');
+// const Service = require('./Service');
+const Listing = require('./Listing');
 
 const userSchema = new Schema({
   firstName: {
@@ -28,7 +29,7 @@ const userSchema = new Schema({
     minlength: 5
   },
   orders: [Order.schema],
-  services: [Service.schema]
+  listings: [Listing.schema]
 });
 
 // set up pre-save middleware to create password

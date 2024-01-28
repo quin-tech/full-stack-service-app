@@ -78,6 +78,20 @@ export const QUERY_USER = gql`
           price
         }
       }
+      listings {
+        _id
+        listingDate
+        services {
+          _id
+          name
+          description
+          image
+          availability
+          contact
+          email
+          price
+        }
+      }
     }
   }
 `;

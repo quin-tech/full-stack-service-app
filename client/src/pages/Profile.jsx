@@ -31,9 +31,6 @@ function Profile() {
     }
   }
 
-  // const handleClick = () => {
-  //   alert("Clicky");
-  // };
 
   return (
     <>

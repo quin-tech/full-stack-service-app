@@ -1,9 +1,10 @@
 const { User, Service, Category, Order } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 require('dotenv').config();
+const Listing = require('../models/Listing');
 
 // Obtain Stripe secret key from .env
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); 
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const resolvers = {
   Query: {
@@ -33,10 +34,16 @@ const resolvers = {
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.services',
-          populate: 'category'
-        });
+        const user = await User.findById(context.user._id).populate([
+          {
+            path: 'orders.services',
+            populate: 'category'
+          },
+          {
+            path: 'listings.services',
+            populate: 'category'
+          }
+        ]);
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -53,6 +60,18 @@ const resolvers = {
         });
 
         return user.orders.id(_id);
+      }
+
+      throw AuthenticationError;
+    },
+    listing: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'listings.services',
+          populate: 'category'
+        });
+
+        return user.listings.id(_id);
       }
 
       throw AuthenticationError;
@@ -108,6 +127,17 @@ const resolvers = {
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
         return order;
+      }
+
+      throw AuthenticationError;
+    },
+    addListing: async (parent, { services }, context) => {
+      if (context.user) {
+        const listing = new Listing({ services });
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { listings: listing } });
+
+        return listing;
       }
 
       throw AuthenticationError;

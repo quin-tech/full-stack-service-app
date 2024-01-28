@@ -48,11 +48,19 @@ const ProfileForm = () => {
         try {
           const { data } = await addService({
             variables: { name, description, image, price, availability, contact, email, category },
-          });
+          })
+        //   {
+        //     const { data } = await addListing({ variables: { services } });
+        //     const serviceData = data.addListing.services;
+        //         }
+          ;
+          
+
         } catch (err) {
           console.error(err);
         }
       };
+      
 
 return (
     <>
