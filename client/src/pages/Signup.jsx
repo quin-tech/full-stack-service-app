@@ -8,20 +8,32 @@ import Box from '@mui/material/Box';
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [addUser] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
+    // Changed to try catch for possible sign-up error message
+    try {
+      const mutationResponse = await addUser({
+        variables: {
+          email: formState.email,
+          password: formState.password,
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+        },
+      });
+      const token = mutationResponse.data.addUser.token;
+      Auth.login(token);
+
+    } catch (e) {
+      // Alert with specific sign-up error message
+      if (e.message.slice(0,22) === 'User validation failed') {
+        alert(e.message);
+      } else if (e.message.slice(0,19) === 'Must be valid email') {
+        alert(`User validation failed: ${e.message}`);
+      }
+      console.log(e);
+    }
   };
 
   const handleChange = (event) => {

@@ -1,5 +1,5 @@
 const { User, Service, Category, Order } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
+const { signToken, AuthenticationError, EmailFormatError } = require('../utils/auth');
 require('dotenv').config();
 
 // Obtain Stripe secret key from .env
@@ -102,6 +102,14 @@ const resolvers = {
   },
   Mutation: {
     addUser: async (parent, args) => {
+      let {email, password, firstName, lastName} = args;
+
+      // Check valid email format.
+      const regex = new RegExp (/^([a-zA-Z0-9_\.-]+)@([\da-zA-Z\.-]+)\.([a-z\.]{2,6})$/);
+      if (!regex.test(email)) {
+        throw EmailFormatError;
+      }
+
       const user = await User.create(args);
       const token = signToken(user);
 

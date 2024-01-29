@@ -27,6 +27,7 @@
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.11.2",
     "redux": "^5.0.1",
+    "vite-plugin-pwa": "^0.17.5",
     "vitest": "^0.32.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
