@@ -11,7 +11,6 @@ export const QUERY_SERVICES = gql`
       contact
       email
       price
-      listingDate
       category {
         _id
       }
