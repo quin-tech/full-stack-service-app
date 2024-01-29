@@ -13,6 +13,7 @@ function Profile() {
 
   if (data) {
     user = data.user;
+    console.log('Orders:', user.orders);
   }
 
   const styles = {
@@ -74,6 +75,7 @@ function Profile() {
             </div>
 
             <h5>Purchase History:</h5>
+            {/*
             <div>
               <Accordion
                 style={styles.accordion}>
@@ -97,10 +99,10 @@ function Profile() {
                   Category
                 </AccordionDetails>
               </Accordion>
-            </div>
+            </div>*/}
 
-
-            {/* {user.orders.map((order) => (
+            {/*
+            {user.orders.map((order) => (
               <div key={order._id} className="my-2">
                 <h3>
                   {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
@@ -120,7 +122,27 @@ function Profile() {
                   ))}
                 </div>
               </div>
-            ))} */}
+            ))}
+            */}
+                {user.orders.map((order) => (
+                  <Accordion 
+                    style={styles.accordion}
+                    key={order._id}>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1-content"
+                      id="panel1-header">
+                      Order Date: {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
+                    </AccordionSummary>
+                        {order.services.map(({ _id, image, name, price, category}, index) => (
+                            <AccordionDetails  key={index}
+                                style={styles.details}>
+                                <Link to={`/services/${_id}`}> Name: {name}</Link><br/>
+                                Price: {price} 
+                            </AccordionDetails>
+                        ))}
+                  </Accordion>
+                ))}
           </>
         ) : null}
       </div>
