@@ -11,6 +11,7 @@ export const QUERY_SERVICES = gql`
       contact
       email
       price
+      listingDate
       category {
         _id
       }
@@ -78,19 +79,16 @@ export const QUERY_USER = gql`
           price
         }
       }
-      listings {
+      services {
         _id
         listingDate
-        services {
-          _id
-          name
-          description
-          image
-          availability
-          contact
-          email
-          price
-        }
+        name
+        description
+        image
+        availability
+        contact
+        email
+        price
       }
     }
   }

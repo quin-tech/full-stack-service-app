@@ -33,11 +33,14 @@ const serviceSchema = new Schema({
     ref: 'Category',
     required: true
   },
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  }
+  // user: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   required: true
+  // },
+  listingDate: {
+    type: String,
+  },
 });
 
 const Service = mongoose.model('Service', serviceSchema);
