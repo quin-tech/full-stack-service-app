@@ -17,7 +17,6 @@ import Auth from '../../utils/auth';
 
 function ServiceList() {
   const state = useSelector((state) => state.globalState);
-  console.log({state})
   const dispatch = useDispatch();
   const {currentCategory} = state;
   const {loading, data} = useQuery(QUERY_SERVICES);
