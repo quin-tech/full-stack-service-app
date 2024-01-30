@@ -33,13 +33,9 @@ const serviceSchema = new Schema({
     ref: 'Category',
     required: true
   },
-  // user: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'User',
-  //   required: true
-  // },
-  listingDate: {
-    type: String,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   },
 });
 

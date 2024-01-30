@@ -48,7 +48,7 @@ const ProfileForm = () => {
         event.preventDefault();
         try {
             await addService({
-            variables: { name, description, image, price, availability, contact, email, category, listingDate: new Date() },
+            variables: { name, description, image, price, availability, contact, email, category },
           })  
         handleClick();
         setName('');

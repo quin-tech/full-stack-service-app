@@ -15,7 +15,7 @@ export const QUERY_SERVICES = gql`
         _id
       }
       user {
-        firstName
+        _id
       }
     }
   }
@@ -44,7 +44,7 @@ export const QUERY_ALL_SERVICES = gql`
         name
       }
       user {
-        firstName
+        _id
       }
     }
   }
@@ -80,7 +80,6 @@ export const QUERY_USER = gql`
       }
       services {
         _id
-        listingDate
         name
         description
         image
