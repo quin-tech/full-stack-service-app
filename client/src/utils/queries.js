@@ -11,6 +11,9 @@ export const QUERY_SERVICES = gql`
       contact
       email
       price
+      category {
+        _id
+      }
     }
   }
 `;
