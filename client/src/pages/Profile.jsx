@@ -25,7 +25,7 @@ function Profile() {
     },
     details: {
       fontWeight: 'normal',
-      padding: '10px 0 0 15px',
+      padding: '5px 0 5px 15px',
     },
     spacer: {
       marginTop: '40px'
@@ -95,8 +95,8 @@ function Profile() {
                         key={index}
                         style={styles.details}
                       >
-                        <Link to={`/services/${_id}`}> Name: {name}</Link><br/>
-                        Price: {price} 
+                        <Link to={`/services/${_id}`}>{name}</Link><br/>
+                        Price: ${price} 
                       </AccordionDetails>
                     ))}
                   </Accordion>
