@@ -69,8 +69,6 @@ function Nav() {
     setValue(newValue);
   };
 
-  console.log(value);
-
   if (Auth.loggedIn()) {
   return (
     <Box

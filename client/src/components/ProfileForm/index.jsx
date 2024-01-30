@@ -36,8 +36,15 @@ const ProfileForm = () => {
 
     const styles = {
         spacer: {
-            marginTop: '40px'
-          }
+            marginTop: '40px',
+            width: '450px'
+          },
+          buttonA: {
+            color: '#E65728',
+            backgroundColor: '#F3A847',
+            border: 'solid #E65728;',
+            margin: '8px'
+          },
         }
     
     function onChangePrice(e) {
@@ -76,94 +83,91 @@ const ProfileForm = () => {
       };
 
 return (
-    <>
-    <div>
-    <p
-      style={styles.spacer}>
-      Post a service listing to make cash from your skills!</p>
-  </div>
-  <Box
-    component="form"
-    onSubmit={handleFormSubmit}
-    sx={{
-      '& .MuiTextField-root': { m: 1, width: '50ch' },
-    }}
-    noValidate
-    autoComplete="off"
-  >
-    <div>
-      <TextField
-        id="nameInput"
-        required
-        label="What is your Service?"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      />
-      <TextField
-        id="descInput"
-        required
-        label="Details/Description"
-        value={description}
-        onChange={(event) => setDescription(event.target.value)}
-      />
-      <TextField
-        id="priceInput"
-        required
-        label="Name your Price"
-        type="number"
-        value={price}
-        onChange={onChangePrice}
-      />
-       <TextField
-        id="availInput"
-        required
-        label="Availability (Days/Times)"
-        value={availability}
-        onChange={(event) => setAvailability(event.target.value)}
-      />
-      <TextField
-        id="contactInput"
-        required
-        label="Contact"
-        value={contact}
-        onChange={(event) => setContact(event.target.value)}
-      />
-      <TextField
-        id="emailInput"
-        required
-        label="Email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
+  <section>
+    <h5 style={styles.spacer}>Post a service to make cash from your skills!</h5>
+    <Box
+      component="form"
+      onSubmit={handleFormSubmit}
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '50ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <div>
+        <TextField
+          id="nameInput"
+          required
+          label="What is your Service?"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
         />
-        <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Category</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          label="Category"
-          value={category}
-          onChange={handleChange}
-        >
-        {categoriesList && categoriesList.map((item) => (
-          <MenuItem 
-          key={item._id}
-          value={item._id}
-        >{item.name}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </Box>
-    <Button
-    variant="contained"
-    color="success"
-    type="submit"
-  >
-    Add Service Listing
-  </Button>
+        <TextField
+          id="descInput"
+          required
+          label="Details/Description"
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
+        />
+        <TextField
+          id="priceInput"
+          required
+          label="Name your Price"
+          type="number"
+          value={price}
+          onChange={onChangePrice}
+        />
+        <TextField
+          id="availInput"
+          required
+          label="Availability (Days/Times)"
+          value={availability}
+          onChange={(event) => setAvailability(event.target.value)}
+        />
+        <TextField
+          id="contactInput"
+          required
+          label="Name"
+          value={contact}
+          onChange={(event) => setContact(event.target.value)}
+        />
+        <TextField
+          id="emailInput"
+          required
+          label="Email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        <Box sx={{ minWidth: 140, paddingLeft: '8px' }}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              label="Category"
+              value={category}
+              onChange={handleChange}
+            >
+            {categoriesList && categoriesList.map((item) => (
+              <MenuItem 
+              key={item._id}
+              value={item._id}
+            >{item.name}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Box>
+      <Button
+        variant="contained"
+        size='small'
+        type="submit"
+        style={styles.buttonA}
+      >
+        Add Service Listing
+      </Button>
 
-    </div>
-  </Box>
+      </div>
+    </Box>
 
   <div>
       <Snackbar
@@ -175,7 +179,7 @@ return (
     </div>
 
 
-  </>
+  </section>
   );
 };
 
