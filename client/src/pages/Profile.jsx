@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../utils/queries';
-import Button from '@mui/material/Button';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ProfileForm from '../components/ProfileForm';
 
 function Profile() {
+
   const { data } = useQuery(QUERY_USER);
   let user;
 
@@ -31,6 +32,12 @@ function Profile() {
     }
   }
 
+  console.log(user);
+
+
+
+
+
   return (
     <>
       <div className="container my-1">
@@ -38,40 +45,41 @@ function Profile() {
 
         {user ? (
           <>
-
             <h4>{user.firstName} {user.lastName}'s Profile</h4>
-            <div>
-              <p
-                style={styles.spacer}>
-                Post a service listing to make cash from your skills!</p>
-            </div>
-            <Button variant="contained" color="success">
-              Add a Service Listing
-            </Button>
+            <ProfileForm />
             <h5>Current Listings:</h5>
             <div>
-              <Accordion
-                style={styles.accordion}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1-content"
-                  id="panel1-header"
-                >
-                  Listing 1 Name
-                </AccordionSummary>
-                <AccordionDetails
+              {user.services && user.services.map((item) => (
+                <div key={item._id}>
+                  <Accordion
+                    style={styles.accordion}>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1-content"
+                      id="panel1-header"
+                    >
+                      Listing: {item.name}
+                    </AccordionSummary>
+                    <AccordionDetails
+                      style={styles.details}>
+                      Details: {item.description}
+                    </AccordionDetails>
+                    <AccordionDetails
+                      style={styles.details}>
+                      Price: ${item.price}
+                    </AccordionDetails>
+                    <AccordionDetails
+                      style={styles.details}>
+                      Category. Link to listing page?
+                      {item.category}
+                    </AccordionDetails>
+                    <AccordionDetails
                   style={styles.details}>
-                  Listing details
+                  <Link to={`/services/${item._id}`}>See full Listing</Link>
                 </AccordionDetails>
-                <AccordionDetails
-                  style={styles.details}>
-                  $ Price
-                </AccordionDetails>
-                <AccordionDetails
-                  style={styles.details}>
-                  Category. Link to listing page?
-                </AccordionDetails>
-              </Accordion>
+                  </Accordion>
+                </div>
+              ))}
             </div>
 
             <h5>Purchase History:</h5>

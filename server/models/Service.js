@@ -32,7 +32,11 @@ const serviceSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Category',
     required: true
-  }
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
 });
 
 const Service = mongoose.model('Service', serviceSchema);

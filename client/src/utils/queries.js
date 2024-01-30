@@ -11,9 +11,6 @@ export const QUERY_SERVICES = gql`
       contact
       email
       price
-      category {
-        _id
-      }
     }
   }
 `;
@@ -39,6 +36,9 @@ export const QUERY_ALL_SERVICES = gql`
       price
       category {
         name
+      }
+      user {
+        _id
       }
     }
   }
@@ -71,6 +71,16 @@ export const QUERY_USER = gql`
           email
           price
         }
+      }
+      services {
+        _id
+        name
+        description
+        image
+        availability
+        contact
+        email
+        price
       }
     }
   }

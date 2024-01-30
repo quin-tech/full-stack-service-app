@@ -3,12 +3,15 @@ const { signToken, AuthenticationError, EmailFormatError } = require('../utils/a
 require('dotenv').config();
 
 // Obtain Stripe secret key from .env
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); 
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const resolvers = {
   Query: {
     categories: async () => {
       return await Category.find();
+    },
+    users: async () => {
+      return await User.find();
     },
     services: async (parent, { category, name }) => {
       const params = {};
@@ -30,10 +33,16 @@ const resolvers = {
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.services',
-          populate: 'category'
-        });
+        const user = await User.findById(context.user._id).populate([
+          {
+            path: 'orders.services',
+            populate: 'category'
+          },
+          {
+            path: 'services',
+            populate: 'category'
+          }
+        ]);
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -113,6 +122,21 @@ const resolvers = {
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
         return order;
+      }
+
+      throw AuthenticationError;
+    },
+    addService: async (parent, { name, description, image, price, availability, contact, email, category }, context) => {
+      if (context.user) {
+        console.log(context.user);
+        const service = await Service.create({ name, description, image, price, availability, contact, email, category, user: context.user._id });
+        console.log(service);
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { services: service } }
+        );
+
+        return service;
       }
 
       throw AuthenticationError;
