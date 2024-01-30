@@ -23,7 +23,7 @@ This web application was developed in collaboration with Madison Eckstrom, Tabba
 
 To refactor this web application, we used the following tutorials and libraries:    
         - Redux: https://www.npmjs.com/package/redux  
-        - Readt-redux: https://www.npmjs.com/package/react-redux   
+        - React-redux: https://www.npmjs.com/package/react-redux   
         - Redux: https://redux.js.org/     
         - React: https://react.dev/learn  
         - Context: https://legacy.reactjs.org/docs/context.html      
