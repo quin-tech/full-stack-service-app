@@ -33,7 +33,7 @@ To refactor this web application, we used the following tutorials and libraries:
         - Authentication: https://www.apollographql.com/docs/react/networking/authentication/       
         - Render: https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-render-and-mongodb-atlas 
         - Logo: https://app.logo.com/
-        - MUI: https://mui.com/material-ui/ 
+        - MUI: https://mui.com/material-ui/
                                                                            
 
 ## License

@@ -40,7 +40,6 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
   };
 }
 
@@ -83,10 +82,10 @@ function Nav() {
         onChange={handleChange}
         aria-label="Vertical tabs example"
         role="navigation"
+        textColor="inherit"
         TabIndicatorProps={{
           style: {
             backgroundColor: "#E65728",
-            textColor: "inherit"
           }
         }}
       >

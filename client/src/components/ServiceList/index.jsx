@@ -13,9 +13,11 @@ import spinner from '../../assets/spinner.gif';
 import {useSelector, useDispatch} from 'react-redux';
 import {stateActions} from '../../utils/stateSlice';
 import Typography from '@mui/material/Typography';
+import Auth from '../../utils/auth';
 
 function ServiceList() {
   const state = useSelector((state) => state.globalState);
+  console.log({state})
   const dispatch = useDispatch();
   const {currentCategory} = state;
   const {loading, data} = useQuery(QUERY_SERVICES);
@@ -30,10 +32,12 @@ function ServiceList() {
   useEffect(() => {
     if (data) {
       dispatch(stateActions.updateServices(data.services));
+      if(Auth.loggedIn()) {
+        data.services.forEach((service) => {
+          idbPromise('services', 'put', service);
+        });
+      }
 
-      data.services.forEach((service) => {
-        idbPromise('services', 'put', service);
-      });
     } else if (!loading) {
       idbPromise('services', 'get').then((services) => {
         dispatch(stateActions.updateServices(services));
