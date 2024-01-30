@@ -17,7 +17,6 @@ import { stateActions } from '../utils/stateSlice';
 
 function Detail() {
 
-  // const [state, dispatch] = useStoreContext();
   const state = useSelector((state) => state.globalState);
   const dispatch = useDispatch();
   const { id } = useParams();
