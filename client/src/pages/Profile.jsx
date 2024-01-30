@@ -25,7 +25,7 @@ function Profile() {
     },
     details: {
       fontWeight: 'normal',
-      padding: 1,
+      padding: '10px 0 0 15px',
     },
     spacer: {
       marginTop: '40px'
@@ -68,11 +68,6 @@ function Profile() {
                       <AccordionDetails
                         style={styles.details}>
                         Price: ${item.price}
-                      </AccordionDetails>
-                      <AccordionDetails
-                        style={styles.details}>
-                        Category. Link to listing page?
-                        {item.category}
                       </AccordionDetails>
                       <AccordionDetails
                     style={styles.details}>
