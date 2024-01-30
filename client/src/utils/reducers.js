@@ -22,8 +22,6 @@ const INITIAL_STATE = {
 
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    //   updating the products state with whatever
-    //   we are getting from the action
     case UPDATE_SERVICES:
       return {
         ...state,
@@ -55,8 +53,6 @@ export const reducer = (state = INITIAL_STATE, action) => {
         }),
       };
 
-    // TODO: Add a comment describing the functionality of the REMOVE_FROM_CART case
-    // Your comment here
     case REMOVE_FROM_CART:
       // Creating a brand new array by removing all the items that match whatever action._id is
       let newState = state.cart.filter((service) => {
