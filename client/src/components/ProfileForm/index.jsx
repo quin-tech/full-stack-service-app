@@ -42,7 +42,7 @@ const ProfileForm = () => {
           buttonA: {
             color: '#E65728',
             backgroundColor: '#F3A847',
-            border: 'solid #E65728;',
+            border: 'solid #E65728',
             margin: '8px'
           },
         }
