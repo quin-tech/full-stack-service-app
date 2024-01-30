@@ -83,55 +83,6 @@ function Profile() {
             </div>
 
             <h5>Purchase History:</h5>
-            {/*
-            <div>
-              <Accordion
-                style={styles.accordion}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1-content"
-                  id="panel1-header"
-                >
-                  Order 1 Name
-                </AccordionSummary>
-                <AccordionDetails
-                  style={styles.details}>
-                  Order details
-                </AccordionDetails>
-                <AccordionDetails
-                  style={styles.details}>
-                  $ Price
-                </AccordionDetails>
-                <AccordionDetails
-                  style={styles.details}>
-                  Category
-                </AccordionDetails>
-              </Accordion>
-            </div>*/}
-
-            {/*
-            {user.orders.map((order) => (
-              <div key={order._id} className="my-2">
-                <h3>
-                  {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
-                </h3>
-                <div className="flex-row">
-                  {order.services.map(({ _id, image, name, price, category, }, index) => (
-                    <div key={index} className="card px-1 py-1">
-                      <Link to={`/services/${_id}`}>
-                        <img alt={name} src={`/images/${image}`} />
-                        <p>{name}</p>
-                        <p>{category}</p>
-                      </Link>
-                      <div>
-                        <span>${price}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-            */}
                 {user.orders.map((order) => (
                   <Accordion 
                     style={styles.accordion}

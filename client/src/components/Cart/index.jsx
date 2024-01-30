@@ -13,9 +13,7 @@ const stripePromise = loadStripe('pk_test_51ObbQVGqsdJoFmAP33BNJUp93VA0ztyOnWSRu
 
 const Cart = () => {
   const state = useSelector((state) => state.globalState);
-  console.log(state);
   const dispatch = useDispatch();
-  // const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
@@ -29,10 +27,6 @@ const Cart = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      // Old Redux
-      // dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
-
-      // New Redux
       dispatch(stateActions.addMultipleToCart([...cart]))
     }
 
@@ -42,10 +36,6 @@ const Cart = () => {
   }, [state.cart.length, dispatch]);
 
   function toggleCart() {
-    // old redux
-    // dispatch({ type: TOGGLE_CART });
-  
-    // new redux
     dispatch(stateActions.toggleCart());
   }
 
