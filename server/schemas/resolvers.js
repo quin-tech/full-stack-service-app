@@ -129,7 +129,6 @@ const resolvers = {
     addService: async (parent, { name, description, image, price, availability, contact, email, category }, context) => {
       if (context.user) {
         const service = await Service.create({ name, description, image, price, availability, contact, email, category, user: context.user._id });
-        console.log(service);
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { services: service } }
