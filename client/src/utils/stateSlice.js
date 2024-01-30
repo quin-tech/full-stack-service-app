@@ -16,7 +16,7 @@ const stateSlice = createSlice({
   // to automatically listen for the actionTypes that we will be dispatching
   reducers: {
     updateServices: (state, action) => {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.services = [...action.payload];
     },
     addToCart: (state, action) => {

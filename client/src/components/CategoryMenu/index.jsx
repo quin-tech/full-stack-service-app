@@ -39,7 +39,6 @@ function CategoryMenu() {
     if (categoryData) {
       dispatch(stateActions.updateCategories(categoryData.categories));
 
-
       categoryData.categories.forEach((category) => {
         idbPromise('categories', 'put', category);
       });
@@ -52,6 +51,7 @@ function CategoryMenu() {
 
   const handleClickItem = (id) => {
     dispatch(stateActions.updateCurrentCategory(id));
+    console.log(id)
   };
 
   return (

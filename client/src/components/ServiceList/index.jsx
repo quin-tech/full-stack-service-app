@@ -50,7 +50,7 @@ function ServiceList() {
     }
 
     return state.services.filter(
-      (service) => service.category._id === currentCategory
+      (service) => service.category._id === currentCategory,
     );
   }
 

@@ -40,68 +40,73 @@ function Profile() {
 
   return (
     <>
-      <div className="container my-1">
-        <Link to="/">← Back to Services</Link>
-
+      <div className="container">
         {user ? (
           <>
             <h4>{user.firstName} {user.lastName}'s Profile</h4>
-            <ProfileForm />
-            <h5>Current Listings:</h5>
-            <div>
-              {user.services && user.services.map((item) => (
-                <div key={item._id}>
-                  <Accordion
-                    style={styles.accordion}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1-content"
-                      id="panel1-header"
-                    >
-                      Listing: {item.name}
-                    </AccordionSummary>
-                    <AccordionDetails
-                      style={styles.details}>
-                      Details: {item.description}
-                    </AccordionDetails>
-                    <AccordionDetails
-                      style={styles.details}>
-                      Price: ${item.price}
-                    </AccordionDetails>
-                    <AccordionDetails
-                      style={styles.details}>
-                      Category. Link to listing page?
-                      {item.category}
-                    </AccordionDetails>
-                    <AccordionDetails
-                  style={styles.details}>
-                  <Link to={`/services/${item._id}`}>See full Listing</Link>
-                </AccordionDetails>
-                  </Accordion>
-                </div>
-              ))}
-            </div>
 
-            <h5>Purchase History:</h5>
-                {user.orders.map((order) => (
-                  <Accordion 
-                    style={styles.accordion}
-                    key={order._id}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1-content"
-                      id="panel1-header">
-                      Order Date: {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
-                    </AccordionSummary>
-                        {order.services.map(({ _id, image, name, price, category}, index) => (
-                            <AccordionDetails  key={index}
-                                style={styles.details}>
-                                <Link to={`/services/${_id}`}> Name: {name}</Link><br/>
-                                Price: {price} 
-                            </AccordionDetails>
-                        ))}
+            <ProfileForm />
+            
+            <div style={styles.spacer}>
+              <h5>Current Listings:</h5>
+              <div>
+                {user.services && user.services.map((item) => (
+                  <div key={item._id}>
+                    <Accordion
+                      style={styles.accordion}>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1-content"
+                        id="panel1-header"
+                      >
+                        Listing: {item.name}
+                      </AccordionSummary>
+                      <AccordionDetails
+                        style={styles.details}>
+                        Details: {item.description}
+                      </AccordionDetails>
+                      <AccordionDetails
+                        style={styles.details}>
+                        Price: ${item.price}
+                      </AccordionDetails>
+                      <AccordionDetails
+                        style={styles.details}>
+                        Category. Link to listing page?
+                        {item.category}
+                      </AccordionDetails>
+                      <AccordionDetails
+                    style={styles.details}>
+                    <Link to={`/services/${item._id}`}>See full Listing</Link>
+                  </AccordionDetails>
+                    </Accordion>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div style={styles.spacer}>
+              <h5>Purchase History:</h5>
+              {user.orders.map((order) => (
+                <Accordion 
+                  style={styles.accordion}
+                  key={order._id}>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1-content"
+                    id="panel1-header">
+                    Order Date: {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
+                  </AccordionSummary>
+                    {order.services.map(({ _id, image, name, price, category}, index) => (
+                      <AccordionDetails  
+                        key={index}
+                        style={styles.details}
+                      >
+                        <Link to={`/services/${_id}`}> Name: {name}</Link><br/>
+                        Price: {price} 
+                      </AccordionDetails>
+                    ))}
                   </Accordion>
                 ))}
+            </div>
           </>
         ) : null}
       </div>
