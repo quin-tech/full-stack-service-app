@@ -21,7 +21,7 @@ This web application is ready-to-use. Just open the deployed application link pr
 
 This web application was developed in collaboration with Madison Eckstrom, Tabbatha Pischke, Tony Magrady, Jack Weng and Solange Indaco.
 
-To refactor this web application, we used the following tutorials and libraries:    
+To create this web application, we used the following tutorials and libraries:    
         - Redux: https://www.npmjs.com/package/redux  
         - React-redux: https://www.npmjs.com/package/react-redux   
         - Redux: https://redux.js.org/     
@@ -31,8 +31,13 @@ To refactor this web application, we used the following tutorials and libraries:
         - Apollo: https://www.apollographql.com/docs/graphos/explorer/                  
         - GraphQL: https://graphql.org/learn/queries/                   
         - Authentication: https://www.apollographql.com/docs/react/networking/authentication/       
-        - Render: https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-render-and-mongodb-atlas 
-        - Logo: https://app.logo.com/
+        - Render: https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-render-and-mongodb-atlas    
+        - Logo: https://app.logo.com/   
+        - PWA: https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps      
+        - Stripe: https://stripe.com       
+        - JWT: https://jwt.io/introduction      
+        - MongoDB: https://www.mongodb.com/atlas/database      
+        - Bcrypt: https://www.npmjs.com/package/bcrypt              
         - MUI: https://mui.com/material-ui/
                                                                            
 
